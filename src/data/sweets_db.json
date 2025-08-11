@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "sweets": [
+    {
+      "id": "snickers_01",
+      "name": "Snickers",
+      "isPro": false,
+      "category": "Chocolate",
+      "image": "snickers.png",
+      "quickFacts": {
+        "origin": "USA",
+        "year": 1930,
+        "type": "Chocolate Bar"
+      },
+      "history": "Snickers was created in 1930 by Mars, Incorporated...",
+      "flavorProfile": "A satisfying blend of nougat, caramel, and peanuts, coated in milk chocolate...",
+      "trivia": "The bar was named after the Mars family's favorite horse.",
+      "brandStory": null
+    },
+    {
+      "id": "ferrero_rocher_01",
+      "name": "Ferrero Rocher",
+      "isPro": true,
+      "category": "Chocolate",
+      "image": "ferrero.png",
+      "quickFacts": {
+        "origin": "Italy",
+        "year": 1982,
+        "type": "Praline"
+      },
+      "history": "Introduced in 1982 by Italian chocolatier Ferrero...",
+      "flavorProfile": "A whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream...",
+      "trivia": "'Rocher' means 'rock' or 'boulder' in French, likely referring to its shape.",
+      "brandStory": "Ferrero's marketing has always positioned Rocher as a luxury, yet accessible, confection..."
+    }
+  ]
+}
+

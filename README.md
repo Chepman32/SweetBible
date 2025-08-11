@@ -95,3 +95,14 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+## SweetBible
+
+Offline-first mobile encyclopedia for sweets. Built with React Native + TypeScript.
+
+Quick start:
+
+- Install deps: `npm install`
+- iOS pods: `cd ios && bundle install && bundle exec pod install && cd ..`
+- Start metro: `npm start`
+- Run iOS: `npm run ios`

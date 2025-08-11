@@ -23,6 +23,12 @@ target 'SweetBible' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # Additional native modules
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+  pod 'react-native-mmkv', :path => '../node_modules/react-native-mmkv'
+  # RNIap removed; using mock IAP in JS only
+  # RNWorklets removed along with Reanimated
+
   post_install do |installer|
     # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
@@ -31,5 +37,6 @@ target 'SweetBible' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+    # Reanimated/Worklets removed: extra header path not needed
   end
 end

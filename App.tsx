@@ -1,28 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { enableScreens } from 'react-native-screens';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import RootNavigator from './src/navigation/RootNavigator';
+import { theme } from './src/theme/theme';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+enableScreens(true);
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  const navTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: theme.colors.background,
+      primary: theme.colors.primary,
+      card: theme.colors.surface,
+      text: theme.colors.textPrimary,
+      border: '#E8E6E3',
+    },
+  };
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer theme={navTheme}>
+        <StatusBar barStyle={'dark-content'} />
+        <RootNavigator />
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
