@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../theme/theme';
 import { IAP, Product } from '../services/iapMock';
 import { useAppStore } from '../store/useAppStore';
-import { LockIcon } from '../components/Icons';
+import { CheckCircle } from '../components/Icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
 
@@ -44,31 +44,31 @@ export default function StoreScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.card}>
-          <View style={styles.lockRow}>
-            <LockIcon />
-            <Text style={styles.h1}>SweetBible Pro</Text>
+          <Text style={styles.heroTitle}>SweetBible Pro</Text>
+
+          <View style={styles.heroCta}>
+            <Text style={styles.heroCtaText}>Unlock Pro — {product?.price ?? '$4.99'}</Text>
+            <Text style={styles.heroCtaSub}>One-time purchase</Text>
           </View>
-          <Text style={styles.perks}>
-            ✓ Unlock all 100+ sweets{"\n"}
-            ✓ Exclusive Brand Stories{"\n"}
-            ✓ Advanced Filtering{"\n"}
-            ✓ Support Indie Development
-          </Text>
-          {isPro ? (
-            <View style={[styles.cta, { backgroundColor: '#C9EAD6' }]}> 
-              <Text style={[styles.ctaText, { color: '#165F3D' }]}>You already own Pro</Text>
-            </View>
-          ) : (
-            <Pressable onPress={onUnlock} style={styles.cta}>
-              <Text style={styles.ctaText}>Unlock Pro — {product?.price ?? '$4.99'}</Text>
-            </Pressable>
-          )}
+
+          <View style={styles.bulletsWrap}>
+            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>Unlock all 100+ sweets</Text></View>
+            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>Exclusive Brand Stories</Text></View>
+            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>Advanced Filtering</Text></View>
+            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>Support Indie Development</Text></View>
+          </View>
 
           <Pressable onPress={() => Alert.alert('Restored', 'Purchases restored (mock).')} style={styles.restoreBtn}>
             <Text style={styles.restoreText}>Restore Purchases</Text>
           </Pressable>
+
+          {!isPro && (
+            <Pressable onPress={onUnlock} style={[styles.bottomUnlock, styles.shadow]}>
+              <Text style={styles.bottomUnlockText}>{product?.price ?? '$4.99'}</Text>
+            </Pressable>
+          )}
         </View>
 
         <View style={styles.packsRow}>
@@ -98,17 +98,12 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 12,
   },
-  lockRow: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: theme.spacing(1) },
-  h1: { fontSize: 24, fontWeight: '800', color: theme.colors.textPrimary },
-  perks: { color: theme.colors.textPrimary, marginVertical: theme.spacing(1), lineHeight: 22 },
-  cta: {
-    backgroundColor: theme.colors.primary,
-    paddingVertical: 14,
-    borderRadius: theme.radius.button,
-    alignItems: 'center',
-    marginTop: theme.spacing(1),
-  },
-  ctaText: { color: 'white', fontWeight: '800' },
+  heroTitle: { fontSize: 32, fontWeight: '900', color: theme.colors.textPrimary, marginBottom: theme.spacing(1) },
+  heroCta: { backgroundColor: theme.colors.primary, paddingVertical: 16, borderRadius: 24, alignItems: 'center', marginVertical: theme.spacing(1) },
+  heroCtaText: { color: 'white', fontWeight: '900', fontSize: 18 },
+  heroCtaSub: { color: 'white', opacity: 0.9, marginTop: 4 },
+  bulletRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  bulletText: { color: theme.colors.textPrimary, fontSize: 18 },
   restoreBtn: {
     marginTop: theme.spacing(2),
     paddingVertical: 12,
@@ -128,6 +123,17 @@ const styles = StyleSheet.create({
   },
   packTitle: { color: theme.colors.textPrimary, fontWeight: '800' },
   packSub: { color: theme.colors.textSecondary, marginTop: 4 },
+  bottomUnlock: {
+    marginTop: theme.spacing(2),
+    borderRadius: 28,
+    backgroundColor: theme.colors.primary,
+    alignItems: 'center',
+    paddingVertical: 14,
+  },
+  bottomUnlockText: { color: 'white', fontWeight: '900', fontSize: 18 },
+  shadow: { shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 12, shadowOffset: { width: 0, height: 6 } },
+  scrollContent: { paddingBottom: 40 },
+  bulletsWrap: { marginTop: theme.spacing(2), rowGap: 14 } as any,
 });
 
 

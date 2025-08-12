@@ -40,19 +40,23 @@ export default function RootNavigator() {
       <Stack.Screen
         name="SweetDetail"
         component={SweetDetailScreen}
-        options={{ headerShown: true, title: '', headerTransparent: true, headerBackTitleVisible: false }}
+        options={{ headerShown: true, title: '', headerTransparent: true }}
       />
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="Favorites" component={FavoritesScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="Store" component={StoreScreen} />
-      <Stack.Screen name="Notifications" component={NotificationsScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationsScreen}
+        options={{ headerShown: true, title: 'Notifications' }}
+      />
       <Stack.Screen name="Success" component={PurchaseSuccessScreen} />
       <Stack.Screen name="Countries" component={CountriesScreen} />
       <Stack.Screen
         name="CountryDetail"
         component={CountryDetailScreen}
-        options={{ headerShown: true, title: '', headerTransparent: true, headerBackTitleVisible: false }}
+        options={{ headerShown: true, headerTitleAlign: 'left' }}
       />
     </Stack.Navigator>
   );

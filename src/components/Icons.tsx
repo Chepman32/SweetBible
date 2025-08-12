@@ -131,4 +131,13 @@ export function BackIcon({ size = 24, color = theme.colors.textPrimary }: IconPr
   );
 }
 
+export function CheckCircle({ size = 22, color = '#4ECDC4' }: { size?: number; color?: string }) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24">
+      <Circle cx={12} cy={12} r={10} fill={color} opacity={0.2} />
+      <Path d="M8 12l2.5 2.5L16 9" stroke={color} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+    </Svg>
+  );
+}
+
 
