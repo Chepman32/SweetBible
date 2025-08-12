@@ -210,6 +210,7 @@ const styles = StyleSheet.create({
     paddingVertical: theme.spacing(1),
     backgroundColor: '#f8f8f8',
     zIndex: 10,
+    elevation: 1,
   },
   scrollView: {
     flex: 1,
@@ -225,6 +226,7 @@ const styles = StyleSheet.create({
   heroSection: {
     position: 'relative',
     height: 200,
+    marginTop: theme.spacing(1),
     marginHorizontal: theme.spacing(2),
     marginBottom: theme.spacing(2),
     borderRadius: 12,
@@ -245,7 +247,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    background: 'linear-gradient(transparent, rgba(0,0,0,0.6))',
+    backgroundColor: 'rgba(0,0,0,0.6)',
     padding: theme.spacing(2),
   },
   title: { 

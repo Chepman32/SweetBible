@@ -98,6 +98,16 @@ export const translateSweetName = (id: string, fallbackName: string): string => 
     tres_leches_01: 'tresLeches',
     turkish_delight_01: 'turkishDelight',
     wagashi_01: 'traditionalWagashi',
+    cannoli_01: 'cannoli',
+    ferrero_rocher_01: 'ferreroRocher',
+    panettone_01: 'panettone',
+    macaron_01: 'macaron',
+    pain_au_chocolat_01: 'painAuChocolat',
+    matcha_kitkat_01: 'matchaKitKat',
+    chocolate_chip_cookie_01: 'chocolateChipCookie',
+    reeses_01: 'reeses',
+    black_forest_cake_01: 'blackForestCake',
+    gummy_bears_01: 'gummyBears'
   };
 
   const key = idToKey[id];

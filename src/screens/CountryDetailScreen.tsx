@@ -23,7 +23,7 @@ export default function CountryDetailScreen({ route, navigation }: Props) {
   }, [navigation, country]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['bottom', 'left', 'right']}>
       <FlatList
         data={sweets}
         keyExtractor={(i: any) => i.id}

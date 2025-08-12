@@ -10,7 +10,8 @@ import { RootStackParamList } from '../navigation/RootNavigator';
 import { featuredSweets, sweetCategories, trending } from '../data/homePageData';
 import homeHelpers, { getTodaysFeatured, getCurrentSeasonCollection, getSweetOfTheDay } from '../data/homePageHelpers';
 import { useTranslation } from '../hooks/useTranslation';
-import { translateCategory, translateSweetName } from '../utils/translateSweetData';
+import { translateCategory, translateSweetName, translateCountry } from '../utils/translateSweetData';
+import { translateDailyFeature, translateSeasonalCollection, translateTrendingReason } from '../utils/translateHomeData';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -20,9 +21,15 @@ export default function HomeScreen({ navigation }: Props) {
   const isPro = useAppStore(s => s.isPro);
 
   // Get dynamic data based on current day and season
-  const todaysFeatured = getTodaysFeatured();
-  const seasonalCollection = getCurrentSeasonCollection();
+  const todaysFeaturedRaw = getTodaysFeatured();
+  const seasonalCollectionRaw = getCurrentSeasonCollection();
   const sweetOfTheDay = getSweetOfTheDay();
+  
+  // Apply translations to dynamic content
+  const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  const currentDay = days[new Date().getDay()];
+  const todaysFeatured = translateDailyFeature(currentDay);
+  const seasonalCollection = translateSeasonalCollection(seasonalCollectionRaw.season.toLowerCase());
 
   const sweets = useMemo(() => {
     if (category === 'all') {
@@ -70,7 +77,7 @@ export default function HomeScreen({ navigation }: Props) {
                 <View>
                   <Text style={styles.sweetOfDayLabel}>{t('home.sweetOfTheDay')}</Text>
                   <Text style={styles.sweetOfDayTitle}>{sweetOfTheDay.name}</Text>
-                  <Text style={styles.sweetOfDayOrigin}>{t('home.from')} {sweetOfTheDay.quickFacts.origin}</Text>
+                  <Text style={styles.sweetOfDayOrigin}>{t('home.from')} {translateCountry(sweetOfTheDay.quickFacts.origin)}</Text>
                 </View>
                 <Image source={{ uri: `https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80` }} style={styles.sweetOfDayImage} />
               </View>
@@ -95,7 +102,7 @@ export default function HomeScreen({ navigation }: Props) {
                   <View style={styles.trendingContent}>
                   <Text style={styles.trendingTitle}>{translateSweetName(item.id, item.name)}</Text>
                     <Text style={styles.trendingGrowth}>{item.growth}</Text>
-                    <Text style={styles.trendingReason}>{item.trendingReason}</Text>
+                    <Text style={styles.trendingReason}>{translateTrendingReason(item.trendingReason)}</Text>
                   </View>
                   <Image source={{ uri: `https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80` }} style={styles.trendingImage} />
                 </Pressable>
