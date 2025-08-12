@@ -11,6 +11,8 @@ import StoreScreen from '../screens/StoreScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import PurchaseSuccessScreen from '../screens/PurchaseSuccessScreen';
 import TabNavigator from './TabNavigator';
+import CountriesScreen from '../screens/CountriesScreen';
+import CountryDetailScreen from '../screens/CountryDetailScreen';
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -23,6 +25,8 @@ export type RootStackParamList = {
   Store: undefined;
   Notifications: undefined;
   Success: undefined;
+  Countries: undefined;
+  CountryDetail: { country: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -44,6 +48,12 @@ export default function RootNavigator() {
       <Stack.Screen name="Store" component={StoreScreen} />
       <Stack.Screen name="Notifications" component={NotificationsScreen} />
       <Stack.Screen name="Success" component={PurchaseSuccessScreen} />
+      <Stack.Screen name="Countries" component={CountriesScreen} />
+      <Stack.Screen
+        name="CountryDetail"
+        component={CountryDetailScreen}
+        options={{ headerShown: true, title: '', headerTransparent: true, headerBackTitleVisible: false }}
+      />
     </Stack.Navigator>
   );
 }

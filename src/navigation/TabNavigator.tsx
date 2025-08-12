@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
-import FavoritesScreen from '../screens/FavoritesScreen';
+import CountriesScreen from '../screens/CountriesScreen';
 import StoreScreen from '../screens/StoreScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { theme } from '../theme/theme';
@@ -26,9 +26,9 @@ export default function TabNavigator() {
         options={{ tabBarLabel: 'Home', tabBarIcon: ({ color }) => <TabHome color={color} /> }}
       />
       <Tab.Screen
-        name="Sweeties"
-        component={FavoritesScreen}
-        options={{ tabBarLabel: 'Sweeties', tabBarIcon: ({ color }) => <TabSweet color={color} /> }}
+        name="CountriesTab"
+        component={CountriesScreen}
+        options={{ tabBarLabel: 'Countries', tabBarIcon: ({ color }) => <TabSweet color={color} /> }}
       />
       <Tab.Screen
         name="StoreTab"
