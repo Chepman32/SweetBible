@@ -10,6 +10,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import StoreScreen from '../screens/StoreScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import PurchaseSuccessScreen from '../screens/PurchaseSuccessScreen';
+import { useTranslation } from '../hooks/useTranslation';
 import TabNavigator from './TabNavigator';
 import CountriesScreen from '../screens/CountriesScreen';
 import CountryDetailScreen from '../screens/CountryDetailScreen';
@@ -32,6 +33,7 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootNavigator() {
+  const { t } = useTranslation();
   return (
     <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Splash" component={SplashScreen} />
@@ -49,7 +51,7 @@ export default function RootNavigator() {
       <Stack.Screen
         name="Notifications"
         component={NotificationsScreen}
-        options={{ headerShown: true, title: 'Notifications' }}
+        options={{ headerShown: true, title: t('settings.notifications') }}
       />
       <Stack.Screen name="Success" component={PurchaseSuccessScreen} />
       <Stack.Screen name="Countries" component={CountriesScreen} />

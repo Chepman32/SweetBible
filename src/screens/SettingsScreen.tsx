@@ -1,13 +1,17 @@
-import React from 'react';
-import { View, Text, StyleSheet, Pressable, Alert, StatusBar } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Pressable, Alert, StatusBar, Modal, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../theme/theme';
 import { useAppStore } from '../store/useAppStore';
 import { IAP } from '../services/iapMock';
+import { useTranslation } from '../hooks/useTranslation';
+import { languages, Language } from '../i18n';
 
 export default function SettingsScreen({ navigation }: any) {
   const isPro = useAppStore(s => s.isPro);
   const setPro = useAppStore(s => s.setPro);
+  const { t, currentLanguage, changeLanguage } = useTranslation();
+  const [showLanguageModal, setShowLanguageModal] = useState(false);
 
   const purchase = async () => {
     try {
@@ -29,33 +33,81 @@ export default function SettingsScreen({ navigation }: any) {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={theme.colors.background} />
 
-      <Text style={styles.header}>Settings</Text>
+      <Text style={styles.header}>{t('settings.title')}</Text>
 
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>SweetBible Pro</Text>
+          <Text style={styles.cardTitle}>SweetBible Pro</Text>
         {isPro ? (
-          <Text style={styles.thanks}>Thank you for supporting SweetBible! 🎉</Text>
+          <Text style={styles.thanks}>{t('settings.support')} SweetBible! 🎉</Text>
         ) : (
           <>
-            <Text style={styles.desc}>Unlock all sweets, exclusive brand stories, and more.</Text>
+            <Text style={styles.desc}>{t('settings.proDescription') ?? 'Unlock all sweets, exclusive brand stories, and more.'}</Text>
             <Pressable onPress={purchase} style={styles.cta}>
-              <Text style={styles.ctaText}>Unlock Pro</Text>
+              <Text style={styles.ctaText}>{t('settings.unlockPro') ?? 'Unlock Pro'}</Text>
             </Pressable>
           </>
         )}
       </View>
 
       <View style={styles.list}>
+        <Pressable onPress={() => setShowLanguageModal(true)} style={styles.row}>
+          <View style={styles.rowContent}>
+            <Text style={styles.rowText}>{t('settings.language')}</Text>
+            <Text style={styles.rowValue}>{languages[currentLanguage]}</Text>
+          </View>
+        </Pressable>
         <Pressable onPress={() => navigation.navigate('Notifications')} style={styles.row}>
-          <Text style={styles.rowText}>Notifications</Text>
+          <Text style={styles.rowText}>{t('settings.notifications') ?? 'Notifications'}</Text>
         </Pressable>
         <Pressable onPress={() => {}} style={styles.row}>
-          <Text style={styles.rowText}>About</Text>
+          <Text style={styles.rowText}>{t('settings.about')}</Text>
         </Pressable>
         <Pressable onPress={() => {}} style={styles.row}>
-          <Text style={styles.rowText}>Privacy Policy</Text>
+          <Text style={styles.rowText}>{t('settings.privacyPolicy')}</Text>
         </Pressable>
       </View>
+
+      <Modal
+        visible={showLanguageModal}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setShowLanguageModal(false)}
+      >
+        <SafeAreaView style={styles.modalContainer}>
+          <View style={styles.modalHeader}>
+            <Text style={styles.modalTitle}>{t('settings.selectLanguage')}</Text>
+            <Pressable onPress={() => setShowLanguageModal(false)} style={styles.closeButton}>
+              <Text style={styles.closeButtonText}>{t('common.done')}</Text>
+            </Pressable>
+          </View>
+          
+          <ScrollView style={styles.languageList}>
+            {Object.entries(languages).map(([code, name]) => (
+              <Pressable
+                key={code}
+                onPress={() => {
+                  changeLanguage(code as Language);
+                  setShowLanguageModal(false);
+                }}
+                style={[
+                  styles.languageRow,
+                  currentLanguage === code && styles.languageRowSelected
+                ]}
+              >
+                <Text style={[
+                  styles.languageText,
+                  currentLanguage === code && styles.languageTextSelected
+                ]}>
+                  {name}
+                </Text>
+                {currentLanguage === code && (
+                  <Text style={styles.checkmark}>✓</Text>
+                )}
+              </Pressable>
+            ))}
+          </ScrollView>
+        </SafeAreaView>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -81,5 +133,35 @@ const styles = StyleSheet.create({
   list: { marginTop: theme.spacing(1) },
   row: { paddingHorizontal: theme.spacing(2), paddingVertical: theme.spacing(2), borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: theme.colors.divider, backgroundColor: theme.colors.surface },
   rowText: { color: theme.colors.textPrimary, fontWeight: '600' },
+  rowContent: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' },
+  rowValue: { color: theme.colors.textSecondary, fontSize: 16 },
+  modalContainer: { flex: 1, backgroundColor: theme.colors.background },
+  modalHeader: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    paddingHorizontal: theme.spacing(2), 
+    paddingVertical: theme.spacing(1),
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.colors.divider
+  },
+  modalTitle: { fontSize: 18, fontWeight: '700', color: theme.colors.textPrimary },
+  closeButton: { paddingHorizontal: theme.spacing(1), paddingVertical: 8 },
+  closeButtonText: { color: theme.colors.primary, fontWeight: '600', fontSize: 16 },
+  languageList: { flex: 1 },
+  languageRow: { 
+    paddingHorizontal: theme.spacing(2), 
+    paddingVertical: theme.spacing(2), 
+    borderBottomWidth: StyleSheet.hairlineWidth, 
+    borderBottomColor: theme.colors.divider, 
+    backgroundColor: theme.colors.surface,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  languageRowSelected: { backgroundColor: theme.colors.primary + '10' },
+  languageText: { color: theme.colors.textPrimary, fontWeight: '600', fontSize: 16 },
+  languageTextSelected: { color: theme.colors.primary },
+  checkmark: { color: theme.colors.primary, fontSize: 18, fontWeight: '700' },
 });
 

@@ -5,10 +5,13 @@ import { theme } from '../theme/theme';
 import data from '../data/sweets_db.json';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
+import { useTranslation } from '../hooks/useTranslation';
+import { translateCountry } from '../utils/translateSweetData';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Countries'>;
 
 export default function CountriesScreen({ navigation }: Props) {
+  const { t } = useTranslation();
   const countries = useMemo(() => {
     const set = new Set<string>();
     (data.sweets as any[]).forEach(s => {
@@ -19,13 +22,13 @@ export default function CountriesScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>Countries</Text>
+      <Text style={styles.header}>{t('navigation.countries')}</Text>
       <FlatList
         data={countries}
         keyExtractor={i => i}
         renderItem={({ item }) => (
           <Pressable onPress={() => navigation.navigate('CountryDetail', { country: item })} style={styles.row}>
-            <Text style={styles.rowText}>{item}</Text>
+            <Text style={styles.rowText}>{translateCountry(item)}</Text>
           </Pressable>
         )}
       />

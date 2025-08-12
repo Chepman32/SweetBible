@@ -1,0 +1,95 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "search": "Recherche",
+    "favorites": "Favoris",
+    "settings": "Paramètres"
+  },
+  "common": {
+    "cancel": "Annuler",
+    "back": "Retour",
+    "save": "Sauvegarder",
+    "done": "Terminé",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "share": "Partager",
+    "loading": "Chargement..."
+  },
+  "home": {
+    "title": "Bible des Douceurs",
+    "subtitle": "Découvrez les douceurs du monde entier",
+    "searchPlaceholder": "Rechercher douceurs, pays, saveurs...",
+    "popularSearches": "Recherches Populaires",
+    "featuredSweets": "Douceurs en Vedette",
+    "exploreByCountry": "Explorer par Pays"
+  },
+  "search": {
+    "title": "Recherche",
+    "placeholder": "Rechercher des douceurs",
+    "noResults": "Aucune douceur trouvée",
+    "tryAgain": "Essayez de rechercher chocolat, biscuits ou un nom de pays",
+    "findYourTreat": "Trouvez votre friandise préférée",
+    "popularSearches": "Recherches Populaires"
+  },
+  "sweetDetail": {
+    "quickFacts": "Informations Rapides",
+    "history": "Histoire",
+    "tasteDescription": "Description du Goût",
+    "flavorProfile": "Profil de Saveur - cuit !",
+    "dietaryNotes": "Notes Diététiques",
+    "didYouKnow": "Le Saviez-vous ?",
+    "brandStory": "Histoire de la Marque",
+    "facts": {
+      "type": "Type",
+      "calories": "Calories",
+      "origin": "Origine",
+      "year": "Année",
+      "ingredients": "Ingrédients",
+      "dietaryNotes": "Notes Diététiques",
+      "premiumStory": "Histoire Premium"
+    }
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "selectLanguage": "Sélectionner la Langue",
+    "about": "À propos",
+    "version": "Version",
+    "support": "Support",
+    "privacyPolicy": "Politique de Confidentialité"
+  },
+  "favorites": {
+    "title": "Favoris",
+    "empty": "Aucun favori pour le moment",
+    "emptyDescription": "Commencez à explorer et ajoutez des douceurs à vos favoris !"
+  },
+  "countries": {
+    "italy": "Italie",
+    "france": "France",
+    "japan": "Japon",
+    "usa": "États-Unis",
+    "germany": "Allemagne",
+    "turkey": "Turquie",
+    "india": "Inde",
+    "mexico": "Mexique"
+  },
+  "categories": {
+    "pastry": "Pâtisserie",
+    "chocolate": "Chocolat",
+    "sweetBread": "Pain Sucré",
+    "cookie": "Biscuit",
+    "viennoiserie": "Viennoiserie",
+    "riceCake": "Gâteau de Riz",
+    "dropCookie": "Biscuit Goutte",
+    "chocolateBar": "Barre de Chocolat",
+    "cake": "Gâteau",
+    "gummyCandy": "Bonbon Gélifié",
+    "friedSweet": "Douceur Frite",
+    "custard": "Crème Anglaise",
+    "pancake": "Crêpe",
+    "barCookie": "Biscuit Barre",
+    "frozenDessert": "Dessert Glacé",
+    "dessert": "Dessert",
+    "confection": "Confiserie"
+  }
+}

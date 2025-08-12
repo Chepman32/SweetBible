@@ -9,11 +9,14 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
 import { featuredSweets, sweetCategories, trending } from '../data/homePageData';
 import homeHelpers, { getTodaysFeatured, getCurrentSeasonCollection, getSweetOfTheDay } from '../data/homePageHelpers';
+import { useTranslation } from '../hooks/useTranslation';
+import { translateCategory, translateSweetName } from '../utils/translateSweetData';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export default function HomeScreen({ navigation }: Props) {
-  const [category, setCategory] = React.useState('All');
+  const { t } = useTranslation();
+  const [category, setCategory] = React.useState<'all' | string>('all');
   const isPro = useAppStore(s => s.isPro);
 
   // Get dynamic data based on current day and season
@@ -22,7 +25,7 @@ export default function HomeScreen({ navigation }: Props) {
   const sweetOfTheDay = getSweetOfTheDay();
 
   const sweets = useMemo(() => {
-    if (category === 'All') {
+    if (category === 'all') {
       return data.sweets as Sweet[];
     }
     
@@ -31,7 +34,7 @@ export default function HomeScreen({ navigation }: Props) {
     return homeHelpers.getSweetsByCategory(categoryId) as Sweet[];
   }, [category]);
 
-  const categories = ['All', ...sweetCategories.map(c => c.name)];
+  const categories: string[] = ['all', ...sweetCategories.map(c => c.id)];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,7 +50,7 @@ export default function HomeScreen({ navigation }: Props) {
           <>
             {/* Search bar */}
             <Pressable onPress={() => (navigation as any)?.getParent?.()?.navigate('Search')} style={styles.searchBar}>
-              <Text style={styles.searchPlaceholder}>Search</Text>
+              <Text style={styles.searchPlaceholder}>{t('home.searchPlaceholder')}</Text>
             </Pressable>
 
             {/* Daily Featured Section */}
@@ -65,9 +68,9 @@ export default function HomeScreen({ navigation }: Props) {
             >
               <View style={styles.sweetOfDayContent}>
                 <View>
-                  <Text style={styles.sweetOfDayLabel}>Sweet of the Day</Text>
+                  <Text style={styles.sweetOfDayLabel}>{t('home.sweetOfTheDay')}</Text>
                   <Text style={styles.sweetOfDayTitle}>{sweetOfTheDay.name}</Text>
-                  <Text style={styles.sweetOfDayOrigin}>from {sweetOfTheDay.quickFacts.origin}</Text>
+                  <Text style={styles.sweetOfDayOrigin}>{t('home.from')} {sweetOfTheDay.quickFacts.origin}</Text>
                 </View>
                 <Image source={{ uri: `https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80` }} style={styles.sweetOfDayImage} />
               </View>
@@ -75,8 +78,8 @@ export default function HomeScreen({ navigation }: Props) {
 
             {/* Trending Now */}
             <View style={styles.sectionHeaderRow}>
-              <Text style={styles.sectionHeader}>Trending Now</Text>
-              <Pressable><Text style={styles.seeAll}>See all</Text></Pressable>
+              <Text style={styles.sectionHeader}>{t('home.trendingNow')}</Text>
+              <Pressable><Text style={styles.seeAll}>{t('home.seeAll')}</Text></Pressable>
             </View>
             <FlatList
               horizontal
@@ -90,7 +93,7 @@ export default function HomeScreen({ navigation }: Props) {
               renderItem={({ item }) => (
                 <Pressable style={styles.trending} onPress={() => (navigation as any)?.getParent?.()?.navigate('SweetDetail', { id: item.id })}>
                   <View style={styles.trendingContent}>
-                    <Text style={styles.trendingTitle}>{item.name}</Text>
+                  <Text style={styles.trendingTitle}>{translateSweetName(item.id, item.name)}</Text>
                     <Text style={styles.trendingGrowth}>{item.growth}</Text>
                     <Text style={styles.trendingReason}>{item.trendingReason}</Text>
                   </View>
@@ -116,14 +119,16 @@ export default function HomeScreen({ navigation }: Props) {
               showsHorizontalScrollIndicator={false}
               renderItem={({ item }) => (
                 <Pressable onPress={() => setCategory(item)} style={[styles.pill, category === item && styles.pillActive]}>
-                  <Text style={[styles.pillText, category === item && styles.pillTextActive]}>{item}</Text>
+                  <Text style={[styles.pillText, category === item && styles.pillTextActive]}>
+                    {item === 'all' ? t('home.all') : translateCategory(item)}
+                  </Text>
                 </Pressable>
               )}
             />
 
             {/* Section title based on category */}
             <Text style={[styles.sectionHeader, { paddingHorizontal: theme.spacing(2), marginTop: 4 }]}>
-              {category === 'All' ? 'All Sweets' : `${category} Treats`}
+              {category === 'all' ? t('home.allSweets') : `${translateCategory(category)} ${t('home.treats')}`}
             </Text>
           </>
         }

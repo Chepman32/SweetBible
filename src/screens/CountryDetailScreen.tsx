@@ -1,5 +1,5 @@
 import React, { useMemo, useLayoutEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { StyleSheet, FlatList, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../theme/theme';
 import data from '../data/sweets_db.json';
@@ -7,6 +7,7 @@ import SweetCard from '../components/SweetCard';
 import { useAppStore } from '../store/useAppStore';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
+import { translateCountry } from '../utils/translateSweetData';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'CountryDetail'>;
 
@@ -18,7 +19,7 @@ export default function CountryDetailScreen({ route, navigation }: Props) {
   }, [country]);
 
   useLayoutEffect(() => {
-    navigation.setOptions({ title: country });
+    navigation.setOptions({ title: translateCountry(country) });
   }, [navigation, country]);
 
   return (

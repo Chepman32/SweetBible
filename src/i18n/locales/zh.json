@@ -1,0 +1,149 @@
+{
+  "navigation": {
+    "home": "首页",
+    "countries": "国家",
+    "store": "商店",
+    "countriesTab": "国家",
+    "search": "搜索",
+    "favorites": "收藏",
+    "settings": "设置"
+  },
+  "sweets": {
+    "japaneseMochi": "日本麻糬",
+    "tresLeches": "三奶蛋糕",
+    "turkishDelight": "土耳其软糖",
+    "traditionalWagashi": "传统和菓子"
+  },
+  "common": {
+    "cancel": "取消",
+    "back": "返回",
+    "save": "保存",
+    "done": "完成",
+    "edit": "编辑",
+    "delete": "删除",
+    "share": "分享",
+    "loading": "加载中..."
+  },
+  "home": {
+    "title": "甜品圣经",
+    "subtitle": "发现世界各地的甜品",
+    "searchPlaceholder": "搜索甜品、国家、口味...",
+    "sweetOfTheDay": "今日甜品",
+    "from": "来自",
+    "trendingNow": "正在流行",
+    "seeAll": "查看全部",
+    "all": "全部",
+    "allSweets": "全部甜品",
+    "treats": "美味",
+    "popularSearches": "热门搜索",
+    "featuredSweets": "精选甜品",
+    "exploreByCountry": "按国家探索"
+  },
+  "search": {
+    "title": "搜索",
+    "placeholder": "搜索甜品",
+    "noResults": "未找到甜品",
+    "tryAgain": "尝试搜索巧克力、饼干或国家名称",
+    "findYourTreat": "找到您最喜欢的美食",
+    "popularSearches": "热门搜索"
+  },
+  "sweetDetail": {
+    "quickFacts": "基本信息",
+    "history": "历史",
+    "tasteDescription": "口味描述",
+    "flavorProfile": "风味特征 - 已烹饪！",
+    "dietaryNotes": "饮食说明",
+    "didYouKnow": "您知道吗？",
+    "brandStory": "品牌故事",
+    "facts": {
+      "type": "类型",
+      "calories": "卡路里",
+      "origin": "产地",
+      "year": "年份",
+      "ingredients": "配料",
+      "dietaryNotes": "饮食说明",
+      "premiumStory": "高级故事"
+    }
+  },
+  "settings": {
+    "title": "设置",
+    "language": "语言",
+    "selectLanguage": "选择语言",
+    "about": "关于",
+    "version": "版本",
+    "support": "感谢您支持",
+    "notifications": "通知",
+    "unlockPro": "解锁专业版",
+    "proDescription": "解锁所有甜品、独家品牌故事等。",
+    "privacyPolicy": "隐私政策"
+  },
+  "favorites": {
+    "title": "收藏",
+    "empty": "暂无收藏",
+    "emptyDescription": "开始探索并将甜品添加到您的收藏夹！"
+  },
+  "store": {
+    "title": "SweetBible 专业版",
+    "unlockPro": "解锁专业版",
+    "oneTimePurchase": "一次性购买",
+    "restorePurchases": "恢复购买",
+    "restored": "已恢复",
+    "purchasesRestored": "购买记录已恢复（模拟）",
+    "purchaseFailed": "购买失败",
+    "unknownError": "未知错误",
+    "bullets": {
+      "unlockAll": "解锁全部 100+ 甜品",
+      "brandStories": "独家品牌故事",
+      "advancedFiltering": "高级筛选",
+      "supportIndie": "支持独立开发"
+    },
+    "holidayPack": { "title": "节日包", "subtitle": "享受季节性甜品" },
+    "japanesePack": { "title": "日本包", "subtitle": "发现经典美味" }
+  },
+  "notifications": {
+    "emptyTitle": "暂无通知",
+    "emptySubtitle": "一切都是最新的！"
+  },
+  "countries": {
+    "italy": "意大利",
+    "france": "法国",
+    "japan": "日本",
+    "usa": "美国",
+    "germany": "德国",
+    "turkey": "土耳其",
+    "india": "印度",
+    "mexico": "墨西哥"
+  },
+  "categories": {
+    "pastry": "糕点",
+    "chocolate": "巧克力",
+    "sweetBread": "甜面包",
+    "cookie": "饼干",
+    "viennoiserie": "维也纳糕点",
+    "riceCake": "年糕",
+    "dropCookie": "滴式饼干",
+    "chocolateBar": "巧克力棒",
+    "cake": "蛋糕",
+    "gummyCandy": "软糖",
+    "friedSweet": "油炸甜品",
+    "custard": "蛋挞",
+    "pancake": "煎饼",
+    "barCookie": "条形饼干",
+    "frozenDessert": "冷冻甜品",
+    "dessert": "甜品",
+    "confection": "糖果"
+  },
+  "sweetTypes": {
+    "pastry": "糕点",
+    "praline": "果仁糖",
+    "christmasBread": "圣诞面包",
+    "sandwichCookie": "夹心饼干",
+    "chocolatePastry": "巧克力糕点",
+    "riceConfection": "米糕点心",
+    "chocolateWafer": "巧克力威化",
+    "dropCookie": "滴式饼干",
+    "chocolateCup": "巧克力杯",
+    "layeredCake": "分层蛋糕",
+    "gelatinCandy": "明胶糖果"
+  }
+}

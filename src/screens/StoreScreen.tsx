@@ -7,6 +7,7 @@ import { useAppStore } from '../store/useAppStore';
 import { CheckCircle } from '../components/Icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
+import { useTranslation } from '../hooks/useTranslation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Store'>;
 
@@ -14,6 +15,7 @@ export default function StoreScreen({ navigation }: Props) {
   const isPro = useAppStore(s => s.isPro);
   const setPro = useAppStore(s => s.setPro);
   const [product, setProduct] = useState<Product | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     let mounted = true;
@@ -38,7 +40,7 @@ export default function StoreScreen({ navigation }: Props) {
       setPro(true);
       navigation.navigate('Success');
     } catch (e: any) {
-      Alert.alert('Purchase failed', e?.message ?? 'Unknown error');
+      Alert.alert(t('store.purchaseFailed'), e?.message ?? t('store.unknownError'));
     }
   };
 
@@ -46,22 +48,22 @@ export default function StoreScreen({ navigation }: Props) {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.card}>
-          <Text style={styles.heroTitle}>SweetBible Pro</Text>
+          <Text style={styles.heroTitle}>{t('store.title')}</Text>
 
           <View style={styles.heroCta}>
-            <Text style={styles.heroCtaText}>Unlock Pro — {product?.price ?? '$4.99'}</Text>
-            <Text style={styles.heroCtaSub}>One-time purchase</Text>
+            <Text style={styles.heroCtaText}>{t('store.unlockPro')} — {product?.price ?? '$4.99'}</Text>
+            <Text style={styles.heroCtaSub}>{t('store.oneTimePurchase')}</Text>
           </View>
 
           <View style={styles.bulletsWrap}>
-            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>Unlock all 100+ sweets</Text></View>
-            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>Exclusive Brand Stories</Text></View>
-            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>Advanced Filtering</Text></View>
-            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>Support Indie Development</Text></View>
+            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>{t('store.bullets.unlockAll')}</Text></View>
+            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>{t('store.bullets.brandStories')}</Text></View>
+            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>{t('store.bullets.advancedFiltering')}</Text></View>
+            <View style={styles.bulletRow}><CheckCircle /><Text style={styles.bulletText}>{t('store.bullets.supportIndie')}</Text></View>
           </View>
 
-          <Pressable onPress={() => Alert.alert('Restored', 'Purchases restored (mock).')} style={styles.restoreBtn}>
-            <Text style={styles.restoreText}>Restore Purchases</Text>
+          <Pressable onPress={() => Alert.alert(t('store.restored'), t('store.purchasesRestored'))} style={styles.restoreBtn}>
+            <Text style={styles.restoreText}>{t('store.restorePurchases')}</Text>
           </Pressable>
 
           {!isPro && (
@@ -73,12 +75,12 @@ export default function StoreScreen({ navigation }: Props) {
 
         <View style={styles.packsRow}>
           <View style={styles.pack}>
-            <Text style={styles.packTitle}>Holiday Pack</Text>
-            <Text style={styles.packSub}>Enjoy seasonal sweets</Text>
+            <Text style={styles.packTitle}>{t('store.holidayPack.title')}</Text>
+            <Text style={styles.packSub}>{t('store.holidayPack.subtitle')}</Text>
           </View>
           <View style={styles.pack}>
-            <Text style={styles.packTitle}>Japanese Pack</Text>
-            <Text style={styles.packSub}>Discover iconic treats</Text>
+            <Text style={styles.packTitle}>{t('store.japanesePack.title')}</Text>
+            <Text style={styles.packSub}>{t('store.japanesePack.subtitle')}</Text>
           </View>
         </View>
       </ScrollView>

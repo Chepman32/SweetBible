@@ -1,0 +1,95 @@
+{
+  "navigation": {
+    "home": "Início",
+    "search": "Buscar",
+    "favorites": "Favoritos",
+    "settings": "Configurações"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "back": "Voltar",
+    "save": "Salvar",
+    "done": "Concluído",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "share": "Compartilhar",
+    "loading": "Carregando..."
+  },
+  "home": {
+    "title": "Bíblia dos Doces",
+    "subtitle": "Descubra doces de todo o mundo",
+    "searchPlaceholder": "Buscar doces, países, sabores...",
+    "popularSearches": "Buscas Populares",
+    "featuredSweets": "Doces em Destaque",
+    "exploreByCountry": "Explorar por País"
+  },
+  "search": {
+    "title": "Buscar",
+    "placeholder": "Buscar doces",
+    "noResults": "Nenhum doce encontrado",
+    "tryAgain": "Tente buscar por chocolate, biscoitos ou nome de um país",
+    "findYourTreat": "Encontre sua guloseima favorita",
+    "popularSearches": "Buscas Populares"
+  },
+  "sweetDetail": {
+    "quickFacts": "Informações Rápidas",
+    "history": "História",
+    "tasteDescription": "Descrição do Sabor",
+    "flavorProfile": "Perfil de Sabor - cozido!",
+    "dietaryNotes": "Notas Dietéticas",
+    "didYouKnow": "Você Sabia?",
+    "brandStory": "História da Marca",
+    "facts": {
+      "type": "Tipo",
+      "calories": "Calorias",
+      "origin": "Origem",
+      "year": "Ano",
+      "ingredients": "Ingredientes",
+      "dietaryNotes": "Notas Dietéticas",
+      "premiumStory": "História Premium"
+    }
+  },
+  "settings": {
+    "title": "Configurações",
+    "language": "Idioma",
+    "selectLanguage": "Selecionar Idioma",
+    "about": "Sobre",
+    "version": "Versão",
+    "support": "Suporte",
+    "privacyPolicy": "Política de Privacidade"
+  },
+  "favorites": {
+    "title": "Favoritos",
+    "empty": "Nenhum favorito ainda",
+    "emptyDescription": "Comece a explorar e adicione doces aos seus favoritos!"
+  },
+  "countries": {
+    "italy": "Itália",
+    "france": "França",
+    "japan": "Japão",
+    "usa": "Estados Unidos",
+    "germany": "Alemanha",
+    "turkey": "Turquia",
+    "india": "Índia",
+    "mexico": "México"
+  },
+  "categories": {
+    "pastry": "Pastelaria",
+    "chocolate": "Chocolate",
+    "sweetBread": "Pão Doce",
+    "cookie": "Biscoito",
+    "viennoiserie": "Vienoiserie",
+    "riceCake": "Bolo de Arroz",
+    "dropCookie": "Biscoito Pingado",
+    "chocolateBar": "Barra de Chocolate",
+    "cake": "Bolo",
+    "gummyCandy": "Bala de Goma",
+    "friedSweet": "Doce Frito",
+    "custard": "Pudim",
+    "pancake": "Panqueca",
+    "barCookie": "Biscoito de Barra",
+    "frozenDessert": "Sobremesa Gelada",
+    "dessert": "Sobremesa",
+    "confection": "Confeito"
+  }
+}

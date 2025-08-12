@@ -1,0 +1,95 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "search": "Suchen",
+    "favorites": "Favoriten",
+    "settings": "Einstellungen"
+  },
+  "common": {
+    "cancel": "Abbrechen",
+    "back": "Zurück",
+    "save": "Speichern",
+    "done": "Fertig",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "share": "Teilen",
+    "loading": "Lädt..."
+  },
+  "home": {
+    "title": "Süßigkeiten-Bibel",
+    "subtitle": "Entdecken Sie Süßigkeiten aus aller Welt",
+    "searchPlaceholder": "Süßigkeiten, Länder, Geschmäcker suchen...",
+    "popularSearches": "Beliebte Suchen",
+    "featuredSweets": "Empfohlene Süßigkeiten",
+    "exploreByCountry": "Nach Land erkunden"
+  },
+  "search": {
+    "title": "Suchen",
+    "placeholder": "Süßigkeiten suchen",
+    "noResults": "Keine Süßigkeiten gefunden",
+    "tryAgain": "Versuchen Sie es mit Schokolade, Kekse oder einem Ländernamen",
+    "findYourTreat": "Finden Sie Ihre Lieblingsleckerei",
+    "popularSearches": "Beliebte Suchen"
+  },
+  "sweetDetail": {
+    "quickFacts": "Schnelle Fakten",
+    "history": "Geschichte",
+    "tasteDescription": "Geschmacksbeschreibung",
+    "flavorProfile": "Geschmacksprofil - gekocht!",
+    "dietaryNotes": "Diäthinweise",
+    "didYouKnow": "Wussten Sie?",
+    "brandStory": "Markengeschichte",
+    "facts": {
+      "type": "Typ",
+      "calories": "Kalorien",
+      "origin": "Herkunft",
+      "year": "Jahr",
+      "ingredients": "Zutaten",
+      "dietaryNotes": "Diäthinweise",
+      "premiumStory": "Premium-Geschichte"
+    }
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "selectLanguage": "Sprache auswählen",
+    "about": "Über",
+    "version": "Version",
+    "support": "Support",
+    "privacyPolicy": "Datenschutzrichtlinie"
+  },
+  "favorites": {
+    "title": "Favoriten",
+    "empty": "Noch keine Favoriten",
+    "emptyDescription": "Beginnen Sie zu erkunden und fügen Sie Süßigkeiten zu Ihren Favoriten hinzu!"
+  },
+  "countries": {
+    "italy": "Italien",
+    "france": "Frankreich",
+    "japan": "Japan",
+    "usa": "Vereinigte Staaten",
+    "germany": "Deutschland",
+    "turkey": "Türkei",
+    "india": "Indien",
+    "mexico": "Mexiko"
+  },
+  "categories": {
+    "pastry": "Gebäck",
+    "chocolate": "Schokolade",
+    "sweetBread": "Süßes Brot",
+    "cookie": "Keks",
+    "viennoiserie": "Wiener Gebäck",
+    "riceCake": "Reiskuchen",
+    "dropCookie": "Tropfkeks",
+    "chocolateBar": "Schokoladenriegel",
+    "cake": "Kuchen",
+    "gummyCandy": "Gummibärchen",
+    "friedSweet": "Frittierte Süßigkeit",
+    "custard": "Pudding",
+    "pancake": "Pfannkuchen",
+    "barCookie": "Riegelkeks",
+    "frozenDessert": "Gefrorenes Dessert",
+    "dessert": "Nachspeise",
+    "confection": "Konfekt"
+  }
+}

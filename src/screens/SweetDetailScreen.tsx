@@ -9,6 +9,8 @@ import { getImageSource } from '../data/imageMap';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
 import { useAppStore } from '../store/useAppStore';
+import { useTranslation } from '../hooks/useTranslation';
+import { translateSweetType, translateCategory, translateCountry } from '../utils/translateSweetData';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'SweetDetail'>;
 
@@ -17,6 +19,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
   const sweet = useMemo(() => data.sweets.find((s: any) => s.id === id), [id]);
   const isFav = useAppStore(s => !!s.favorites[id]);
   const toggle = useAppStore(s => s.toggleFavorite);
+  const { t } = useTranslation();
 
   if (!sweet) return null;
 
@@ -28,7 +31,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
         {/* Header with back button and country */}
         <View style={styles.header}>
           <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
-            <Text style={styles.backButtonText}>‹ {sweet.quickFacts.origin}</Text>
+            <Text style={styles.backButtonText}>‹ {translateCountry(sweet.quickFacts.origin)}</Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -48,7 +51,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
 
         {/* Quick Facts Section */}
         <View style={styles.quickFactsSection}>
-          <Text style={styles.sectionTitle}>Quick Facts</Text>
+          <Text style={styles.sectionTitle}>{t('sweetDetail.quickFacts')}</Text>
           
           <View style={styles.factsGrid}>
             <View style={styles.factItem}>
@@ -56,8 +59,8 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
                 <LeafIcon size={20} />
               </View>
               <View style={styles.factContent}>
-                <Text style={styles.factLabel}>Type</Text>
-                <Text style={styles.factValue}>{sweet.quickFacts.type}</Text>
+                <Text style={styles.factLabel}>{t('sweetDetail.facts.type')}</Text>
+                <Text style={styles.factValue}>{translateSweetType(sweet.quickFacts.type)}</Text>
               </View>
             </View>
 
@@ -67,7 +70,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
                   <Text style={styles.iconText}>🔥</Text>
                 </View>
                 <View style={styles.factContent}>
-                  <Text style={styles.factLabel}>Calories</Text>
+                  <Text style={styles.factLabel}>{t('sweetDetail.facts.calories')}</Text>
                   <Text style={styles.factValue}>{sweet.nutrition.calories} kcal ({sweet.nutrition.servingSize})</Text>
                 </View>
               </View>
@@ -78,8 +81,8 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
                 <GlobeIcon size={20} />
               </View>
               <View style={styles.factContent}>
-                <Text style={styles.factLabel}>Origin</Text>
-                <Text style={styles.factValue}>{sweet.quickFacts.origin}</Text>
+                <Text style={styles.factLabel}>{t('sweetDetail.facts.origin')}</Text>
+                <Text style={styles.factValue}>{translateCountry(sweet.quickFacts.origin)}</Text>
               </View>
             </View>
 
@@ -88,7 +91,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
                 <CalendarIcon size={20} />
               </View>
               <View style={styles.factContent}>
-                <Text style={styles.factLabel}>Year</Text>
+                <Text style={styles.factLabel}>{t('sweetDetail.facts.year')}</Text>
                 <Text style={styles.factValue}>{sweet.quickFacts.year}</Text>
               </View>
             </View>
@@ -99,7 +102,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
                   <Text style={styles.iconText}>🥄</Text>
                 </View>
                 <View style={styles.factContent}>
-                  <Text style={styles.factLabel}>Ingredients</Text>
+                  <Text style={styles.factLabel}>{t('sweetDetail.facts.ingredients')}</Text>
                   <Text style={styles.factValue}>{sweet.ingredients.length} items</Text>
                 </View>
               </View>
@@ -111,7 +114,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
                   <Text style={styles.iconText}>🏷️</Text>
                 </View>
                 <View style={styles.factContent}>
-                  <Text style={styles.factLabel}>Dietary Notes</Text>
+                  <Text style={styles.factLabel}>{t('sweetDetail.facts.dietaryNotes')}</Text>
                 </View>
               </View>
             )}
@@ -122,7 +125,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
                   <Text style={styles.iconText}>⭐</Text>
                 </View>
                 <View style={styles.factContent}>
-                  <Text style={styles.factLabel}>Premium Story</Text>
+                  <Text style={styles.factLabel}>{t('sweetDetail.facts.premiumStory')}</Text>
                 </View>
               </View>
             )}
@@ -130,19 +133,19 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
         </View>
 
         {/* History Section */}
-        <Accordion title="History" defaultExpanded={true}>
+        <Accordion title={t('sweetDetail.history')} defaultExpanded={true}>
           <Text style={styles.accordionContent}>{sweet.history}</Text>
         </Accordion>
 
         {/* Taste Description Section */}
         {sweet.tasteDescription && (
-          <Accordion title="Taste Description" defaultExpanded={false}>
+          <Accordion title={t('sweetDetail.tasteDescription')} defaultExpanded={false}>
             <Text style={styles.accordionContent}>{sweet.tasteDescription}</Text>
           </Accordion>
         )}
 
         {/* Flavor Profile Section with Ingredients */}
-        <Accordion title="Flavor Profile - cooked!" defaultExpanded={false}>
+        <Accordion title={t('sweetDetail.flavorProfile')} defaultExpanded={false}>
           <Text style={styles.accordionContent}>{sweet.flavorProfile}</Text>
           {sweet.ingredients && (
             <View style={styles.ingredientsSection}>
@@ -162,7 +165,7 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
 
         {/* Dietary Notes Accordion */}
         {sweet.dietaryNotes && (
-          <Accordion title="Dietary Notes" defaultExpanded={false}>
+          <Accordion title={t('sweetDetail.dietaryNotes')} defaultExpanded={false}>
             <View style={styles.dietaryNotesContent}>
               {sweet.dietaryNotes.map((note, index) => (
                 <View key={index} style={styles.dietaryNoteItem}>
@@ -175,14 +178,14 @@ export default function SweetDetailScreen({ route, navigation }: Props) {
 
         {/* Trivia Section */}
         {sweet.trivia && (
-          <Accordion title="Did You Know?" defaultExpanded={false}>
+          <Accordion title={t('sweetDetail.didYouKnow')} defaultExpanded={false}>
             <Text style={styles.accordionContent}>{sweet.trivia}</Text>
           </Accordion>
         )}
 
         {/* Brand Story Section */}
         {sweet.brandStory && (
-          <Accordion title="Brand Story" defaultExpanded={false}>
+          <Accordion title={t('sweetDetail.brandStory')} defaultExpanded={false}>
             <Text style={styles.accordionContent}>{sweet.brandStory}</Text>
           </Accordion>
         )}

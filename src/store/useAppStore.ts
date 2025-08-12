@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { storage } from './mmkv';
+import { Language } from '../i18n';
 
 export type FavoriteMap = Record<string, true>;
 
@@ -8,9 +9,11 @@ type AppState = {
   hasCompletedOnboarding: boolean;
   isPro: boolean;
   favorites: FavoriteMap;
+  currentLanguage: Language;
   setCompletedOnboarding: (completed: boolean) => void;
   setPro: (isPro: boolean) => void;
   toggleFavorite: (id: string) => void;
+  setLanguage: (language: Language) => void;
 };
 
 export const useAppStore = create<AppState>()(
@@ -19,8 +22,10 @@ export const useAppStore = create<AppState>()(
       hasCompletedOnboarding: false,
       isPro: false,
       favorites: {},
+      currentLanguage: 'en',
       setCompletedOnboarding: completed => set({ hasCompletedOnboarding: completed }),
       setPro: isPro => set({ isPro }),
+      setLanguage: language => set({ currentLanguage: language }),
       toggleFavorite: id => {
         const current = get().favorites;
         const updated: FavoriteMap = { ...current };
@@ -43,6 +48,7 @@ export const useAppStore = create<AppState>()(
         hasCompletedOnboarding: state.hasCompletedOnboarding,
         isPro: state.isPro,
         favorites: state.favorites,
+        currentLanguage: state.currentLanguage,
       }),
     },
   ),

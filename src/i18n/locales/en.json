@@ -1,0 +1,162 @@
+{
+  "navigation": {
+    "home": "Home",
+    "countries": "Countries",
+    "store": "Store",
+    "countriesTab": "Countries",
+    "search": "Search",
+    "favorites": "Favorites",
+    "settings": "Settings"
+  },
+  "sweets": {
+    "japaneseMochi": "Japanese Mochi",
+    "tresLeches": "Tres Leches Cake",
+    "turkishDelight": "Turkish Delight",
+    "traditionalWagashi": "Traditional Wagashi"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "back": "Back",
+    "save": "Save",
+    "done": "Done",
+    "edit": "Edit",
+    "delete": "Delete",
+    "share": "Share",
+    "loading": "Loading..."
+  },
+  "home": {
+    "title": "Sweet Bible",
+    "subtitle": "Discover sweets from around the world",
+    "searchPlaceholder": "Search sweets, countries, flavors...",
+    "sweetOfTheDay": "Sweet of the Day",
+    "from": "from",
+    "trendingNow": "Trending Now",
+    "seeAll": "See all",
+    "all": "All",
+    "allSweets": "All Sweets",
+    "treats": "Treats",
+    "popularSearches": "Popular Searches",
+    "featuredSweets": "Featured Sweets",
+    "exploreByCountry": "Explore by Country"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search sweets",
+    "noResults": "No sweets found",
+    "tryAgain": "Try searching for chocolate, cookies, or a country name",
+    "findYourTreat": "Find your favorite treat",
+    "popularSearches": "Popular Searches"
+  },
+  "sweetDetail": {
+    "quickFacts": "Quick Facts",
+    "history": "History",
+    "tasteDescription": "Taste Description",
+    "flavorProfile": "Flavor Profile - cooked!",
+    "dietaryNotes": "Dietary Notes",
+    "didYouKnow": "Did You Know?",
+    "brandStory": "Brand Story",
+    "facts": {
+      "type": "Type",
+      "calories": "Calories",
+      "origin": "Origin",
+      "year": "Year",
+      "ingredients": "Ingredients",
+      "dietaryNotes": "Dietary Notes",
+      "premiumStory": "Premium Story"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "selectLanguage": "Select Language",
+    "about": "About",
+    "version": "Version",
+    "support": "Thank you for supporting",
+    "notifications": "Notifications",
+    "unlockPro": "Unlock Pro",
+    "proDescription": "Unlock all sweets, exclusive brand stories, and more.",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "No favorites yet",
+    "emptyDescription": "Start exploring and add sweets to your favorites!"
+  },
+  "store": {
+    "title": "SweetBible Pro",
+    "unlockPro": "Unlock Pro",
+    "oneTimePurchase": "One-time purchase",
+    "restorePurchases": "Restore Purchases",
+    "restored": "Restored",
+    "purchasesRestored": "Purchases restored (mock).",
+    "purchaseFailed": "Purchase failed",
+    "unknownError": "Unknown error",
+    "bullets": {
+      "unlockAll": "Unlock all 100+ sweets",
+      "brandStories": "Exclusive Brand Stories",
+      "advancedFiltering": "Advanced Filtering",
+      "supportIndie": "Support Indie Development"
+    },
+    "holidayPack": { "title": "Holiday Pack", "subtitle": "Enjoy seasonal sweets" },
+    "japanesePack": { "title": "Japanese Pack", "subtitle": "Discover iconic treats" }
+  },
+  "notifications": {
+    "emptyTitle": "No notifications",
+    "emptySubtitle": "You’re all up to date!"
+  },
+  "countries": {
+    "italy": "Italy",
+    "france": "France", 
+    "japan": "Japan",
+    "usa": "United States",
+    "germany": "Germany",
+    "turkey": "Turkey",
+    "india": "India",
+    "mexico": "Mexico"
+  },
+  "categories": {
+    "pastry": "Pastry",
+    "chocolate": "Chocolate", 
+    "sweetBread": "Sweet Bread",
+    "cookie": "Cookie",
+    "viennoiserie": "Viennoiserie",
+    "riceCake": "Rice Cake",
+    "dropCookie": "Drop Cookie",
+    "chocolateBar": "Chocolate Bar",
+    "cake": "Cake",
+    "gummyCandy": "Gummy Candy",
+    "friedSweet": "Fried Sweet",
+    "custard": "Custard",
+    "pancake": "Pancake",
+    "barCookie": "Bar Cookie",
+    "frozenDessert": "Frozen Dessert",
+    "dessert": "Dessert",
+    "confection": "Confection"
+  },
+  "sweetTypes": {
+    "pastry": "Pastry",
+    "praline": "Praline",
+    "christmasBread": "Christmas Bread",
+    "sandwichCookie": "Sandwich Cookie",
+    "chocolatePastry": "Chocolate Pastry",
+    "riceConfection": "Rice Confection",
+    "chocolateWafer": "Chocolate Wafer",
+    "dropCookie": "Drop Cookie",
+    "chocolateCup": "Chocolate Cup",
+    "layeredCake": "Layered Cake",
+    "gelatinCandy": "Gelatin Candy",
+    "waffleCookie": "Waffle Cookie",
+    "iceCream": "Ice Cream",
+    "layeredDessert": "Layered Dessert",
+    "viennoiserie": "Viennoiserie",
+    "liqueurChocolate": "Liqueur Chocolate",
+    "puffPastry": "Puff Pastry",
+    "custardDessert": "Custard Dessert",
+    "filledPancake": "Filled Pancake",
+    "chocolateSquare": "Chocolate Square",
+    "candyBar": "Candy Bar",
+    "gelConfection": "Gel Confection",
+    "milkDumpling": "Milk Dumpling",
+    "soakedCake": "Soaked Cake"
+  }
+}

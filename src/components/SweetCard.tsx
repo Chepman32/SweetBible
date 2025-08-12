@@ -3,6 +3,7 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { theme } from '../theme/theme';
 import { ProBadge } from './Icons';
 import { getImageSource } from '../data/imageMap';
+import { translateSweetName } from '../utils/translateSweetData';
 
 export type Sweet = {
   id: string;
@@ -35,7 +36,7 @@ export default function SweetCard({ sweet, proLocked, onPress }: Props) {
           </View>
         )}
       </View>
-      <Text style={styles.title}>{sweet.name}</Text>
+      <Text style={styles.title}>{translateSweetName(sweet.id, sweet.name)}</Text>
     </Pressable>
   );
 }

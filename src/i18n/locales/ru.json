@@ -1,0 +1,135 @@
+{
+  "navigation": {
+    "home": "Главная",
+    "countries": "Страны",
+    "store": "Магазин",
+    "search": "Поиск",
+    "favorites": "Избранное",
+    "settings": "Настройки"
+  },
+  "common": {
+    "cancel": "Отмена",
+    "back": "Назад",
+    "save": "Сохранить",
+    "done": "Готово",
+    "edit": "Редактировать",
+    "delete": "Удалить",
+    "share": "Поделиться",
+    "loading": "Загрузка..."
+  },
+  "sweets": {
+    "japaneseMochi": "Японское моти",
+    "tresLeches": "Три молока (торт)",
+    "turkishDelight": "Лукум",
+    "traditionalWagashi": "Традиционные вагащи"
+  },
+  "home": {
+    "title": "Библия сладостей",
+    "subtitle": "Откройте для себя сладости со всего мира",
+    "searchPlaceholder": "Искать сладости, страны, вкусы...",
+    "sweetOfTheDay": "Сладость дня",
+    "from": "из",
+    "trendingNow": "Сейчас в тренде",
+    "seeAll": "Смотреть все",
+    "all": "Все",
+    "allSweets": "Все сладости",
+    "treats": "лакомства",
+    "popularSearches": "Популярные Запросы",
+    "featuredSweets": "Рекомендуемые Сладости",
+    "exploreByCountry": "Исследовать по Странам"
+  },
+  "search": {
+    "title": "Поиск",
+    "placeholder": "Искать сладости",
+    "noResults": "Сладости не найдены",
+    "tryAgain": "Попробуйте поискать шоколад, печенье или название страны",
+    "findYourTreat": "Найдите своё любимое лакомство",
+    "popularSearches": "Популярные Запросы"
+  },
+  "sweetDetail": {
+    "quickFacts": "Быстрые Факты",
+    "history": "История",
+    "tasteDescription": "Описание Вкуса",
+    "flavorProfile": "Профиль Вкуса - приготовлено!",
+    "dietaryNotes": "Диетические Примечания",
+    "didYouKnow": "Знали ли Вы?",
+    "brandStory": "История Бренда",
+    "facts": {
+      "type": "Тип",
+      "calories": "Калории",
+      "origin": "Происхождение",
+      "year": "Год",
+      "ingredients": "Ингредиенты",
+      "dietaryNotes": "Диетические Примечания",
+      "premiumStory": "Премиум История"
+    }
+  },
+  "settings": {
+    "title": "Настройки",
+    "language": "Язык",
+    "selectLanguage": "Выбрать Язык",
+    "about": "О приложении",
+    "version": "Версия",
+    "support": "Спасибо за поддержку",
+    "notifications": "Уведомления",
+    "unlockPro": "Открыть Pro",
+    "proDescription": "Откройте все сладости, эксклюзивные истории брендов и другое.",
+    "privacyPolicy": "Политика Конфиденциальности"
+  },
+  "favorites": {
+    "title": "Избранное",
+    "empty": "Пока нет избранного",
+    "emptyDescription": "Начните исследование и добавьте сладости в избранное!"
+  },
+  "store": {
+    "title": "SweetBible Pro",
+    "unlockPro": "Открыть Pro",
+    "oneTimePurchase": "Единовременная покупка",
+    "restorePurchases": "Восстановить покупки",
+    "restored": "Восстановлено",
+    "purchasesRestored": "Покупки восстановлены (демо)",
+    "purchaseFailed": "Покупка не удалась",
+    "unknownError": "Неизвестная ошибка",
+    "bullets": {
+      "unlockAll": "Откройте все 100+ сладостей",
+      "brandStories": "Эксклюзивные истории брендов",
+      "advancedFiltering": "Расширенная фильтрация",
+      "supportIndie": "Поддержите независимую разработку"
+    },
+    "holidayPack": { "title": "Праздничный набор", "subtitle": "Наслаждайтесь сезонными сладостями" },
+    "japanesePack": { "title": "Японский набор", "subtitle": "Откройте культовые десерты" }
+  },
+  "notifications": {
+    "emptyTitle": "Нет уведомлений",
+    "emptySubtitle": "У вас все актуально!"
+  },
+  "countries": {
+    "italy": "Италия",
+    "france": "Франция",
+    "japan": "Япония",
+    "usa": "Соединенные Штаты",
+    "germany": "Германия",
+    "turkey": "Турция",
+    "india": "Индия",
+    "mexico": "Мексика"
+  },
+  "categories": {
+    "pastry": "Выпечка",
+    "chocolate": "Шоколад",
+    "sweetBread": "Сладкий Хлеб",
+    "cookie": "Печенье",
+    "viennoiserie": "Венская Выпечка",
+    "riceCake": "Рисовый Пирог",
+    "dropCookie": "Капельное Печенье",
+    "chocolateBar": "Шоколадная Плитка",
+    "cake": "Торт",
+    "gummyCandy": "Жевательные Конфеты",
+    "friedSweet": "Жареная Сладость",
+    "custard": "Заварной Крем",
+    "pancake": "Блинчик",
+    "barCookie": "Батончик-Печенье",
+    "frozenDessert": "Замороженный Десерт",
+    "dessert": "Десерт",
+    "confection": "Кондитерское Изделие"
+  }
+}

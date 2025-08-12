@@ -9,11 +9,14 @@ import homeHelpers from '../data/homePageHelpers';
 import { theme } from '../theme/theme';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
+import { useTranslation } from '../hooks/useTranslation';
+import { translateCategory, translateCountry } from '../utils/translateSweetData';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Search'>;
 
 export default function SearchScreen({ navigation }: Props) {
   const [query, setQuery] = useState('');
+  const { t } = useTranslation();
   
   const fuse = useMemo(
     () =>
@@ -43,7 +46,7 @@ export default function SearchScreen({ navigation }: Props) {
       <View style={styles.searchHeader}>
         <View style={styles.searchInputContainer}>
           <TextInput
-            placeholder="Search sweets"
+            placeholder={t('search.placeholder')}
             placeholderTextColor={theme.colors.textSecondary}
             autoFocus
             value={query}
@@ -57,8 +60,8 @@ export default function SearchScreen({ navigation }: Props) {
             </Pressable>
           )}
         </View>
-        <Pressable onPress={() => navigation.goBack()} style={styles.cancelButton}>
-          <Text style={styles.cancelText}>Cancel</Text>
+             <Pressable onPress={() => navigation.goBack()} style={styles.cancelButton}>
+          <Text style={styles.cancelText}>{t('common.cancel')}</Text>
         </Pressable>
       </View>
 
@@ -69,22 +72,22 @@ export default function SearchScreen({ navigation }: Props) {
         renderItem={({ item }: any) => (
           <Pressable onPress={() => navigation.navigate('SweetDetail', { id: item.id })} style={styles.row}>
             <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.meta}>{item.category} • {item.quickFacts.origin}</Text>
+            <Text style={styles.meta}>{translateCategory(item.category)} • {translateCountry(item.quickFacts.origin)}</Text>
           </Pressable>
         )}
         ListEmptyComponent={
           <View style={styles.emptyWrap}>
             <CandyIcon size={96} />
             <Text style={styles.empty}>
-              {query ? 'No sweets found' : 'Find your favorite treat'}
+              {query ? t('search.noResults') : t('search.findYourTreat')}
             </Text>
             {query ? (
               <Text style={styles.emptySubtext}>
-                Try searching for chocolate, cookies, or a country name
+                {t('search.tryAgain')}
               </Text>
             ) : (
               <View style={styles.suggestionsContainer}>
-                <Text style={styles.suggestionsTitle}>Popular Searches</Text>
+                <Text style={styles.suggestionsTitle}>{t('search.popularSearches')}</Text>
                 <View style={styles.suggestionsList}>
                   {suggestions.map((suggestion, index) => (
                     <Pressable
