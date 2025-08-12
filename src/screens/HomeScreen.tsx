@@ -7,20 +7,31 @@ import SweetCard, { Sweet } from '../components/SweetCard';
 import { useAppStore } from '../store/useAppStore';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
+import { featuredSweets, sweetCategories, trending } from '../data/homePageData';
+import homeHelpers, { getTodaysFeatured, getCurrentSeasonCollection, getSweetOfTheDay } from '../data/homePageHelpers';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
-
-const CATEGORIES = ['All', 'Chocolate', 'Gummy', 'Pastry'];
 
 export default function HomeScreen({ navigation }: Props) {
   const [category, setCategory] = React.useState('All');
   const isPro = useAppStore(s => s.isPro);
 
+  // Get dynamic data based on current day and season
+  const todaysFeatured = getTodaysFeatured();
+  const seasonalCollection = getCurrentSeasonCollection();
+  const sweetOfTheDay = getSweetOfTheDay();
+
   const sweets = useMemo(() => {
-    return (data.sweets as Sweet[]).filter(s => category === 'All' || s.category === category);
+    if (category === 'All') {
+      return data.sweets as Sweet[];
+    }
+    
+    // Use helper to get sweets by category
+    const categoryId = category.toLowerCase();
+    return homeHelpers.getSweetsByCategory(categoryId) as Sweet[];
   }, [category]);
 
-  const featured = (data.sweets as Sweet[])[2] || (data.sweets as Sweet[])[0];
+  const categories = ['All', ...sweetCategories.map(c => c.name)];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -39,6 +50,29 @@ export default function HomeScreen({ navigation }: Props) {
               <Text style={styles.searchPlaceholder}>Search</Text>
             </Pressable>
 
+            {/* Daily Featured Section */}
+            <View style={styles.sectionHeaderRow}>
+              <View>
+                <Text style={styles.sectionHeader}>{todaysFeatured.title}</Text>
+                <Text style={styles.sectionSubtitle}>{todaysFeatured.description}</Text>
+              </View>
+            </View>
+
+            {/* Sweet of the Day */}
+            <Pressable 
+              style={styles.sweetOfDay}
+              onPress={() => (navigation as any)?.getParent?.()?.navigate('SweetDetail', { id: sweetOfTheDay.id })}
+            >
+              <View style={styles.sweetOfDayContent}>
+                <View>
+                  <Text style={styles.sweetOfDayLabel}>Sweet of the Day</Text>
+                  <Text style={styles.sweetOfDayTitle}>{sweetOfTheDay.name}</Text>
+                  <Text style={styles.sweetOfDayOrigin}>from {sweetOfTheDay.quickFacts.origin}</Text>
+                </View>
+                <Image source={{ uri: `https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80` }} style={styles.sweetOfDayImage} />
+              </View>
+            </Pressable>
+
             {/* Trending Now */}
             <View style={styles.sectionHeaderRow}>
               <Text style={styles.sectionHeader}>Trending Now</Text>
@@ -46,24 +80,36 @@ export default function HomeScreen({ navigation }: Props) {
             </View>
             <FlatList
               horizontal
-              data={[1,2,3].map(i => ({ id: `trend_${i}`, title: 'Macaron', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80', target: featured.id }))}
-              keyExtractor={i => i.id}
+              data={trending}
+              keyExtractor={item => item.id}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ paddingHorizontal: theme.spacing(2) }}
               snapToInterval={336}
               decelerationRate="fast"
               disableIntervalMomentum
               renderItem={({ item }) => (
-                <Pressable style={styles.trending} onPress={() => (navigation as any)?.getParent?.()?.navigate('SweetDetail', { id: item.target })}>
-                  <Text style={styles.trendingTitle}>{item.title}</Text>
-                  <Image source={{ uri: item.image }} style={styles.trendingImage} />
+                <Pressable style={styles.trending} onPress={() => (navigation as any)?.getParent?.()?.navigate('SweetDetail', { id: item.id })}>
+                  <View style={styles.trendingContent}>
+                    <Text style={styles.trendingTitle}>{item.name}</Text>
+                    <Text style={styles.trendingGrowth}>{item.growth}</Text>
+                    <Text style={styles.trendingReason}>{item.trendingReason}</Text>
+                  </View>
+                  <Image source={{ uri: `https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80` }} style={styles.trendingImage} />
                 </Pressable>
               )}
             />
 
+            {/* Seasonal Collection */}
+            <View style={styles.sectionHeaderRow}>
+              <View>
+                <Text style={styles.sectionHeader}>{seasonalCollection.title}</Text>
+                <Text style={styles.sectionSubtitle}>{seasonalCollection.description}</Text>
+              </View>
+            </View>
+
             {/* Categories pills */}
             <FlatList
-              data={CATEGORIES}
+              data={categories}
               keyExtractor={i => i}
               horizontal
               contentContainerStyle={{ paddingHorizontal: theme.spacing(2), paddingVertical: theme.spacing(1) }}
@@ -75,8 +121,10 @@ export default function HomeScreen({ navigation }: Props) {
               )}
             />
 
-            {/* Recommended title */}
-            <Text style={[styles.sectionHeader, { paddingHorizontal: theme.spacing(2), marginTop: 4 }]}>Recommended</Text>
+            {/* Section title based on category */}
+            <Text style={[styles.sectionHeader, { paddingHorizontal: theme.spacing(2), marginTop: 4 }]}>
+              {category === 'All' ? 'All Sweets' : `${category} Treats`}
+            </Text>
           </>
         }
         renderItem={({ item }) => (
@@ -115,18 +163,89 @@ const styles = StyleSheet.create({
   },
   seeAll: { color: theme.colors.textSecondary, fontWeight: '700' },
   sectionHeader: { fontSize: 24, fontWeight: '900', color: theme.colors.textPrimary },
+  sectionSubtitle: { 
+    fontSize: 14, 
+    color: theme.colors.textSecondary, 
+    marginTop: 2,
+    lineHeight: 18
+  },
+  sweetOfDay: {
+    marginHorizontal: theme.spacing(2),
+    marginTop: theme.spacing(1),
+    backgroundColor: '#FFE4E1',
+    borderRadius: 18,
+    overflow: 'hidden',
+  },
+  sweetOfDayContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: theme.spacing(2),
+  },
+  sweetOfDayLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  sweetOfDayTitle: { 
+    fontSize: 20, 
+    fontWeight: '800', 
+    color: theme.colors.textPrimary,
+    marginTop: 4,
+  },
+  sweetOfDayOrigin: {
+    fontSize: 14,
+    color: theme.colors.textSecondary,
+    marginTop: 2,
+  },
+  sweetOfDayImage: { 
+    width: 80, 
+    height: 80, 
+    borderRadius: 12 
+  },
   trending: {
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1.5),
     backgroundColor: '#BFE9DF',
     height: 140,
-    width: 320,
+    width: 280,
     borderRadius: 18,
     overflow: 'hidden',
     padding: theme.spacing(2),
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
   },
-  trendingTitle: { fontSize: 28, fontWeight: '900', color: theme.colors.textPrimary },
-  trendingImage: { position: 'absolute', right: 12, bottom: 8, width: 140, height: 100, borderRadius: 12 },
+  trendingContent: {
+    flex: 1,
+    paddingRight: theme.spacing(1),
+  },
+  trendingTitle: { 
+    fontSize: 18, 
+    fontWeight: '800', 
+    color: theme.colors.textPrimary,
+    lineHeight: 22,
+  },
+  trendingGrowth: {
+    fontSize: 24,
+    fontWeight: '900',
+    color: '#00C853',
+    marginTop: 4,
+  },
+  trendingReason: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    marginTop: 8,
+    lineHeight: 16,
+  },
+  trendingImage: { 
+    width: 80, 
+    height: 80, 
+    borderRadius: 12,
+    marginTop: 8,
+  },
   pill: {
     paddingVertical: 10,
     paddingHorizontal: 16,

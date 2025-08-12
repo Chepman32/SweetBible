@@ -1,20 +1,20 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "sweets": [
     {
-      "id": "snickers_01",
-      "name": "Snickers",
+      "id": "cannoli_01",
+      "name": "Cannoli",
       "isPro": false,
-      "category": "Chocolate",
-      "image": "snickers.png",
+      "category": "Pastry",
+      "image": "cannoli.jpg",
       "quickFacts": {
-        "origin": "USA",
-        "year": 1930,
-        "type": "Chocolate Bar"
+        "origin": "Italy",
+        "year": 827,
+        "type": "Pastry"
       },
-      "history": "Snickers was created in 1930 by Mars, Incorporated...",
-      "flavorProfile": "A satisfying blend of nougat, caramel, and peanuts, coated in milk chocolate...",
-      "trivia": "The bar was named after the Mars family's favorite horse.",
+      "history": "Cannoli originated in Sicily during the Arab rule of the island (827-1091 AD). Originally called 'qanawat', meaning 'tubes', they were created by Arab women who introduced the technique of frying pastry dough. The dessert evolved over centuries, with ricotta filling becoming the standard during the Renaissance period.",
+      "flavorProfile": "Crispy, golden pastry shells with a delicate crunch, filled with sweet, creamy ricotta cheese. Often enhanced with chocolate chips, candied citrus peel, or pistachios. The contrast between the crunchy shell and smooth filling creates a perfect textural balance.",
+      "trivia": "Traditional Sicilian cannoli shells are made with Marsala wine in the dough, giving them their distinctive flavor and color.",
       "brandStory": null
     },
     {
@@ -22,87 +22,303 @@
       "name": "Ferrero Rocher",
       "isPro": true,
       "category": "Chocolate",
-      "image": "ferrero.png",
+      "image": "ferrero_rocher.jpg",
       "quickFacts": {
         "origin": "Italy",
         "year": 1982,
         "type": "Praline"
       },
-      "history": "Introduced in 1982 by Italian chocolatier Ferrero...",
-      "flavorProfile": "A whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream...",
-      "trivia": "'Rocher' means 'rock' or 'boulder' in French, likely referring to its shape.",
-      "brandStory": "Ferrero's marketing has always positioned Rocher as a luxury, yet accessible, confection..."
-    },
-    {
-      "id": "macaron_01",
-      "name": "Macaron",
-      "isPro": false,
-      "category": "Pastry",
-      "image": "macaron.png",
-      "quickFacts": { "origin": "France", "year": 1500, "type": "Cookie" },
-      "history": "The modern Parisian macaron was popularized in the early 20th century...",
-      "flavorProfile": "Almond meringue shells with ganache or jam filling...",
-      "trivia": null,
-      "brandStory": null
-    },
-    {
-      "id": "gummy_bears_01",
-      "name": "Gummy Bears",
-      "isPro": false,
-      "category": "Gummy",
-      "image": "gummy.png",
-      "quickFacts": { "origin": "Germany", "year": 1922, "type": "Gummy" },
-      "history": "Invented by Hans Riegel Sr., founder of Haribo...",
-      "flavorProfile": "Chewy fruit-flavored candies...",
-      "trivia": null,
-      "brandStory": null
-    },
-    {
-      "id": "cannoli_01",
-      "name": "Cannoli",
-      "isPro": false,
-      "category": "Pastry",
-      "image": "cannoli.png",
-      "quickFacts": {
-        "origin": "Italy",
-        "year": 827,
-        "type": "Pastry"
-      },
-      "history": "Cannoli originated in Sicily during the Arab rule of the island...",
-      "flavorProfile": "Crispy fried pastry tubes filled with sweet ricotta cheese, often with chocolate chips or candied fruit...",
-      "trivia": "The name 'cannoli' means 'little tubes' in Italian.",
-      "brandStory": null
+      "history": "Created by Michele Ferrero and introduced in 1982, Ferrero Rocher was inspired by the traditional Piedmontese gianduja and the desire to create an accessible luxury chocolate. The recipe combines the family's expertise in hazelnut processing with innovative packaging design.",
+      "flavorProfile": "A whole roasted hazelnut encased in a thin wafer shell, filled with hazelnut cream and covered in milk chocolate and chopped hazelnuts. The combination creates layers of texture from creamy to crunchy, with a rich, nutty flavor profile.",
+      "trivia": "Each Ferrero Rocher contains exactly 74 calories, and the company uses about 25% of the world's hazelnut supply.",
+      "brandStory": "Ferrero positions Rocher as 'a sign of love' and uses golden packaging to convey luxury and premium quality, making it a popular gift worldwide."
     },
     {
       "id": "mon_cheri_01",
       "name": "Mon Chéri",
       "isPro": true,
       "category": "Chocolate",
-      "image": "moncheri.png",
+      "image": "mon_cheri.jpg",
       "quickFacts": {
         "origin": "Italy",
         "year": 1956,
-        "type": "Praline"
+        "type": "Liqueur Chocolate"
       },
-      "history": "Created by Ferrero in 1956, Mon Chéri is a premium chocolate praline...",
-      "flavorProfile": "Dark chocolate shell filled with cherry liqueur and a whole cherry...",
-      "trivia": "The name means 'my dear' in French, reflecting its romantic positioning.",
-      "brandStory": "Mon Chéri is marketed as a sophisticated adult chocolate, often given as gifts."
+      "history": "Created by Ferrero in 1956, Mon Chéri was one of the first mass-produced liqueur chocolates. The product revolutionized the adult confectionery market by combining traditional European liqueur-making with modern chocolate production techniques.",
+      "flavorProfile": "Dark chocolate shell filled with cherry liqueur and a whole maraschino cherry. The alcohol content is 3% by volume, creating a sophisticated flavor that balances sweetness with the complexity of cherry brandy.",
+      "trivia": "The name means 'my dear' in French, and the product is seasonal in many countries, available primarily during winter months due to the alcohol content.",
+      "brandStory": "Mon Chéri is marketed as a sophisticated adult treat, often associated with romantic occasions and elegant evening entertainment."
     },
     {
       "id": "pizzelle_01",
       "name": "Pizzelle",
       "isPro": false,
       "category": "Cookie",
-      "image": "pizzelle.png",
+      "image": "pizzelle.jpg",
       "quickFacts": {
         "origin": "Italy",
         "year": 1400,
-        "type": "Wafer Cookie"
+        "type": "Waffle Cookie"
       },
-      "history": "Pizzelle are traditional Italian waffle cookies that originated in the Abruzzo region...",
-      "flavorProfile": "Thin, crispy waffle cookies with delicate anise or vanilla flavoring...",
-      "trivia": "The name comes from 'pizze', meaning 'round and flat' in Italian.",
+      "history": "Pizzelle are among Italy's oldest cookies, originating in the Abruzzo region around the 8th century. They were traditionally made for religious festivals and weddings. The intricate patterns pressed into the cookies often depicted family crests or religious symbols.",
+      "flavorProfile": "Thin, crispy waffle cookies with a delicate texture and subtle sweetness. Traditional flavors include anise, vanilla, and lemon. The cookies have a light, airy quality with a distinctive patterned surface that creates varying textures in each bite.",
+      "trivia": "The patterns on pizzelle are made using special irons called 'ferri da pizzelle', often passed down through generations of Italian families.",
+      "brandStory": null
+    },
+    {
+      "id": "gelato_01",
+      "name": "Gelato",
+      "isPro": false,
+      "category": "Frozen Dessert",
+      "image": "gelato.jpg",
+      "quickFacts": {
+        "origin": "Italy",
+        "year": 1565,
+        "type": "Ice Cream"
+      },
+      "history": "Gelato was invented in 1565 by Bernardo Buontalenti in Florence for the court of Cosimo I de' Medici. Unlike ice cream, gelato is churned slowly and served at a slightly warmer temperature, resulting in a denser, more flavorful dessert.",
+      "flavorProfile": "Dense, creamy texture with intense flavors. Traditional varieties include pistachio, stracciatella, and zabaione. The slower churning process incorporates less air, creating a silky, rich mouthfeel that allows flavors to shine through more prominently.",
+      "trivia": "Authentic gelato contains 70% less air than regular ice cream and is served at 10-15°F warmer, enhancing flavor perception.",
+      "brandStory": null
+    },
+    {
+      "id": "tiramisu_01",
+      "name": "Tiramisu",
+      "isPro": true,
+      "category": "Dessert",
+      "image": "tiramisu.jpg",
+      "quickFacts": {
+        "origin": "Italy",
+        "year": 1960,
+        "type": "Layered Dessert"
+      },
+      "history": "Tiramisu was created in the 1960s at Le Beccherie restaurant in Treviso, Veneto. Chef Roberto Linguanotto invented this dessert as a variation of sbatudin, a dessert made with zabaione. The name means 'pick me up' in Italian, referring to its energizing coffee content.",
+      "flavorProfile": "Layers of coffee-soaked ladyfingers alternated with a mixture of mascarpone cheese, eggs, and sugar, dusted with cocoa powder. The dessert combines creamy, smooth textures with the bold flavor of espresso and a hint of liqueur.",
+      "trivia": "Traditional tiramisu contains raw eggs and is considered an aphrodisiac in Italian folklore due to its energy-boosting ingredients.",
+      "brandStory": null
+    },
+    {
+      "id": "macaron_01",
+      "name": "Macaron",
+      "isPro": false,
+      "category": "Cookie",
+      "image": "macaron.jpg",
+      "quickFacts": {
+        "origin": "France",
+        "year": 1500,
+        "type": "Sandwich Cookie"
+      },
+      "history": "Macarons were introduced to France by Italian chefs in the 1500s, but the modern Parisian macaron was perfected by Pierre Desfontaines of Ladurée in the early 1900s. He created the sandwich version with ganache filling that we know today.",
+      "flavorProfile": "Delicate almond meringue shells with a smooth, glossy exterior and chewy interior, filled with ganache, buttercream, or jam. The shells provide a subtle almond flavor while the filling delivers the primary taste experience.",
+      "trivia": "A perfect macaron should have a smooth top, ruffled 'foot' at the base, and the shells should stick slightly to your teeth when bitten.",
+      "brandStory": null
+    },
+    {
+      "id": "croissant_01",
+      "name": "Croissant",
+      "isPro": false,
+      "category": "Pastry",
+      "image": "croissant.jpg",
+      "quickFacts": {
+        "origin": "France",
+        "year": 1683,
+        "type": "Puff Pastry"
+      },
+      "history": "The croissant originated from the Austrian kipferl but was perfected in France in the 19th century. French bakers developed the laminated dough technique that creates the characteristic flaky layers through repeated folding of butter and dough.",
+      "flavorProfile": "Buttery, flaky exterior with a tender, airy interior. The laminated dough creates distinct layers that separate when baked, resulting in a crispy outside and soft inside with a rich, buttery flavor throughout.",
+      "trivia": "A proper croissant requires exactly 81 layers of dough and butter, achieved through precise folding techniques.",
+      "brandStory": null
+    },
+    {
+      "id": "creme_brulee_01",
+      "name": "Crème Brûlée",
+      "isPro": true,
+      "category": "Custard",
+      "image": "creme_brulee.jpg",
+      "quickFacts": {
+        "origin": "France",
+        "year": 1691,
+        "type": "Custard Dessert"
+      },
+      "history": "Crème brûlée first appeared in François Massialot's 1691 cookbook. The dessert gained popularity in French high society and eventually became a staple of fine dining establishments worldwide. The signature caramelized sugar top was added in the 18th century.",
+      "flavorProfile": "Rich, creamy vanilla custard with a contrasting layer of hard caramelized sugar on top. The custard is silky and smooth with intense vanilla flavor, while the caramelized top provides a satisfying crack and bitter-sweet taste.",
+      "trivia": "The sugar top should be torched just before serving to maintain the contrast between the cold custard and warm, crackling caramel.",
+      "brandStory": null
+    },
+    {
+      "id": "mochi_01",
+      "name": "Mochi",
+      "isPro": false,
+      "category": "Rice Cake",
+      "image": "mochi.jpg",
+      "quickFacts": {
+        "origin": "Japan",
+        "year": 300,
+        "type": "Rice Confection"
+      },
+      "history": "Mochi has been made in Japan for over 1,000 years, originally as an offering to gods and spirits. The traditional preparation involves pounding steamed glutinous rice with wooden mallets in a ceremony called 'mochitsuki'.",
+      "flavorProfile": "Soft, chewy texture with a mild, slightly sweet flavor. The glutinous rice provides a unique mouthfeel that's both elastic and tender, often filled with sweet red bean paste, ice cream, or other flavored centers.",
+      "trivia": "Mochi-making is considered a spiritual practice in Japan, and eating mochi on New Year's Day is believed to bring good luck.",
+      "brandStory": null
+    },
+    {
+      "id": "dorayaki_01",
+      "name": "Dorayaki",
+      "isPro": false,
+      "category": "Pancake",
+      "image": "dorayaki.jpg",
+      "quickFacts": {
+        "origin": "Japan",
+        "year": 1914,
+        "type": "Filled Pancake"
+      },
+      "history": "Dorayaki was created in 1914 by a confectioner in Tokyo. The modern version consists of two pancake-like patties filled with sweet azuki bean paste. It became widely popular after being featured as the favorite food of the cartoon character Doraemon.",
+      "flavorProfile": "Fluffy, honey-sweetened pancakes sandwiching smooth, sweet red bean paste. The pancakes have a cake-like texture with subtle honey notes, while the azuki filling provides earthy sweetness and creamy consistency.",
+      "trivia": "The name 'dorayaki' comes from 'dora' (gong) because the round shape resembles a Japanese gong.",
+      "brandStory": null
+    },
+    {
+      "id": "chocolate_chip_cookie_01",
+      "name": "Chocolate Chip Cookie",
+      "isPro": false,
+      "category": "Cookie",
+      "image": "chocolate_chip_cookie.jpg",
+      "quickFacts": {
+        "origin": "USA",
+        "year": 1938,
+        "type": "Drop Cookie"
+      },
+      "history": "Ruth Graves Wakefield invented the chocolate chip cookie in 1938 at the Toll House Inn in Massachusetts. She broke up a Nestlé chocolate bar and mixed it into cookie dough, expecting it to create chocolate cookies, but the pieces held their shape instead.",
+      "flavorProfile": "Chewy center with slightly crispy edges, combining sweet vanilla dough with semi-sweet chocolate pieces. The brown sugar creates caramel notes while the chocolate provides rich, slightly bitter contrast to the sweet dough.",
+      "trivia": "Ruth Wakefield sold her recipe to Nestlé for a lifetime supply of chocolate, and her recipe still appears on Nestlé packages today.",
+      "brandStory": null
+    },
+    {
+      "id": "brownie_01",
+      "name": "Brownie",
+      "isPro": false,
+      "category": "Bar Cookie",
+      "image": "brownie.jpg",
+      "quickFacts": {
+        "origin": "USA",
+        "year": 1893,
+        "type": "Chocolate Square"
+      },
+      "history": "Brownies were allegedly created in 1893 for the World's Columbian Exposition in Chicago. Bertha Palmer, a prominent socialite, requested a dessert suitable for ladies' lunchboxes that was more portable than cake but richer than cookies.",
+      "flavorProfile": "Dense, fudgy texture with intense chocolate flavor. The perfect brownie has a slightly crispy top layer and a moist, chewy interior. The chocolate flavor is deep and rich, often enhanced with vanilla and sometimes nuts.",
+      "trivia": "The debate between fudgy vs. cakey brownies has divided Americans for over a century, with fudgy versions being more popular.",
+      "brandStory": null
+    },
+    {
+      "id": "snickers_01",
+      "name": "Snickers",
+      "isPro": false,
+      "category": "Chocolate Bar",
+      "image": "snickers.jpg",
+      "quickFacts": {
+        "origin": "USA",
+        "year": 1930,
+        "type": "Candy Bar"
+      },
+      "history": "Snickers was created by Frank Mars in 1930 and named after the Mars family's favorite horse. It became one of the world's best-selling candy bars, combining nougat, caramel, peanuts, and milk chocolate in a satisfying combination.",
+      "flavorProfile": "Chewy nougat base topped with salted caramel and roasted peanuts, all enrobed in milk chocolate. The combination provides multiple textures and flavors: sweet, salty, creamy, chewy, and crunchy elements in every bite.",
+      "trivia": "Snickers bars were originally sold as 'Marathon' bars in the UK until 1990, and the 'You're not you when you're hungry' campaign is one of the most successful in advertising history.",
+      "brandStory": "Mars positioned Snickers as the hunger-satisfying candy bar, emphasizing its substantial ingredients and ability to provide lasting energy."
+    },
+    {
+      "id": "black_forest_cake_01",
+      "name": "Black Forest Cake",
+      "isPro": true,
+      "category": "Cake",
+      "image": "black_forest_cake.jpg",
+      "quickFacts": {
+        "origin": "Germany",
+        "year": 1915,
+        "type": "Layered Cake"
+      },
+      "history": "Schwarzwälder Kirschtorte originated in the Black Forest region of Germany in the early 20th century. The cake was first mentioned in writing in 1915 and combines local ingredients: cherries, Kirsch (cherry brandy), and rich cream.",
+      "flavorProfile": "Layers of chocolate sponge cake soaked with Kirsch, filled with whipped cream and sour cherries, topped with more cream, chocolate shavings, and maraschino cherries. The alcohol adds complexity while cherries provide tartness to balance the rich chocolate and cream.",
+      "trivia": "Authentic Black Forest cake must contain Kirsch (cherry brandy) to meet German food regulations, and the cherries should be sour, not sweet.",
+      "brandStory": null
+    },
+    {
+      "id": "gummy_bears_01",
+      "name": "Gummy Bears",
+      "isPro": false,
+      "category": "Gummy Candy",
+      "image": "gummy_bears.jpg",
+      "quickFacts": {
+        "origin": "Germany",
+        "year": 1922,
+        "type": "Gelatin Candy"
+      },
+      "history": "Hans Riegel Sr. invented gummy bears in 1922 in Bonn, Germany, and founded Haribo. Originally called 'Dancing Bears,' they were inspired by the trained bears seen at street festivals. The recipe and production methods remain largely unchanged.",
+      "flavorProfile": "Chewy, bouncy texture with bright fruit flavors including strawberry, orange, pineapple, lemon, and raspberry. The gelatin provides a satisfying chew while the fruit flavoring delivers sweet, tangy notes that are both nostalgic and refreshing.",
+      "trivia": "The original gummy bears were larger and harder than modern versions, and Haribo produces over 100 million gummy bears daily.",
+      "brandStory": "Haribo's slogan 'Kids and grown-ups love it so, the happy world of Haribo' reflects the brand's appeal across all ages and its position as the inventor of gummy candy."
+    },
+    {
+      "id": "baklava_01",
+      "name": "Baklava",
+      "isPro": true,
+      "category": "Pastry",
+      "image": "baklava.jpg",
+      "quickFacts": {
+        "origin": "Turkey",
+        "year": 1453,
+        "type": "Phyllo Pastry"
+      },
+      "history": "While disputed among several Mediterranean countries, modern baklava as we know it was perfected in the Ottoman Empire's kitchens in the 15th century. The technique of paper-thin phyllo dough and the combination of nuts and syrup created this iconic dessert.",
+      "flavorProfile": "Layers of paper-thin phyllo pastry filled with chopped nuts (pistachios, walnuts, or almonds) and sweetened with honey or sugar syrup. The result is incredibly flaky and crunchy with rich, nutty flavors and aromatic honey sweetness.",
+      "trivia": "Traditional Turkish baklava contains exactly 40 layers of phyllo dough, and the best versions use Antep pistachios, which are considered the finest in the world.",
+      "brandStory": null
+    },
+    {
+      "id": "turkish_delight_01",
+      "name": "Turkish Delight",
+      "isPro": false,
+      "category": "Confection",
+      "image": "turkish_delight.jpg",
+      "quickFacts": {
+        "origin": "Turkey",
+        "year": 1777,
+        "type": "Gel Confection"
+      },
+      "history": "Turkish Delight (Lokum) was created in 18th century Istanbul by confectioner Bekir Effendi. It became popular in the Ottoman palace and spread throughout the empire. European travelers brought it west, where it gained fame through literature and exotic associations.",
+      "flavorProfile": "Soft, gel-like texture with delicate floral or fruit flavors, dusted with powdered sugar or coconut. Traditional flavors include rose, lemon, and mastic, creating an aromatic, perfumed sweetness that's both subtle and distinctive.",
+      "trivia": "Turkish Delight was famously featured in C.S. Lewis's 'The Lion, the Witch and the Wardrobe,' and authentic versions are still made using traditional methods in Istanbul's Grand Bazaar.",
+      "brandStory": null
+    },
+    {
+      "id": "gulab_jamun_01",
+      "name": "Gulab Jamun",
+      "isPro": false,
+      "category": "Fried Sweet",
+      "image": "gulab_jamun.jpg",
+      "quickFacts": {
+        "origin": "India",
+        "year": 1200,
+        "type": "Milk Dumpling"
+      },
+      "history": "Gulab Jamun originated in medieval India, possibly influenced by Persian and Arab sweets brought by rulers. The name combines 'gulab' (rose water) and 'jamun' (a purple fruit), referring to its appearance and flavor profile.",
+      "flavorProfile": "Soft, spongy dumplings made from milk solids, fried until golden and soaked in aromatic sugar syrup flavored with rose water and cardamom. The texture is incredibly tender, almost melting in the mouth, with floral and spiced sweetness.",
+      "trivia": "Perfect gulab jamun should double in size when fried and have a uniform brown color without cracks, indicating the correct dough consistency and oil temperature.",
+      "brandStory": null
+    },
+    {
+      "id": "tres_leches_01",
+      "name": "Tres Leches Cake",
+      "isPro": true,
+      "category": "Cake",
+      "image": "tres_leches.jpg",
+      "quickFacts": {
+        "origin": "Mexico",
+        "year": 1930,
+        "type": "Soaked Cake"
+      },
+      "history": "Tres Leches cake gained popularity in Mexico in the 1930s, possibly influenced by European sponge cakes. The technique of soaking cake in three types of milk (evaporated, condensed, and heavy cream) created this uniquely Latin American dessert.",
+      "flavorProfile": "Light sponge cake soaked in a mixture of three milks, creating an incredibly moist, almost custard-like texture. The flavor is rich and creamy with vanilla notes, often topped with cinnamon-dusted whipped cream or meringue.",
+      "trivia": "A properly made tres leches cake should be moist but not soggy, and the milk mixture should be completely absorbed by the cake without pooling at the bottom.",
       "brandStory": null
     }
   ]
