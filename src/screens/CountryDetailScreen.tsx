@@ -33,7 +33,7 @@ export default function CountryDetailScreen({ route, navigation }: Props) {
             style={styles.hero}
           />
         }
-        contentContainerStyle={{ paddingHorizontal: theme.spacing(1), paddingBottom: 20 }}
+        contentContainerStyle={styles.contentContainer}
         renderItem={({ item }: any) => (
           <SweetCard
             sweet={item}
@@ -49,7 +49,17 @@ export default function CountryDetailScreen({ route, navigation }: Props) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.colors.background },
   header: { fontSize: 28, fontWeight: '900', color: theme.colors.textPrimary, padding: theme.spacing(2) },
-  hero: { height: 220, marginHorizontal: theme.spacing(2), borderRadius: 16, marginBottom: theme.spacing(1) },
+  hero: { 
+    height: 200, 
+    marginHorizontal: theme.spacing(2), 
+    borderRadius: 20, 
+    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(1)
+  },
+  contentContainer: {
+    paddingHorizontal: theme.spacing(1),
+    paddingBottom: theme.spacing(3),
+  },
 });
 
 

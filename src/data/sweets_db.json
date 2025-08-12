@@ -56,6 +56,54 @@
       "flavorProfile": "Chewy fruit-flavored candies...",
       "trivia": null,
       "brandStory": null
+    },
+    {
+      "id": "cannoli_01",
+      "name": "Cannoli",
+      "isPro": false,
+      "category": "Pastry",
+      "image": "cannoli.png",
+      "quickFacts": {
+        "origin": "Italy",
+        "year": 827,
+        "type": "Pastry"
+      },
+      "history": "Cannoli originated in Sicily during the Arab rule of the island...",
+      "flavorProfile": "Crispy fried pastry tubes filled with sweet ricotta cheese, often with chocolate chips or candied fruit...",
+      "trivia": "The name 'cannoli' means 'little tubes' in Italian.",
+      "brandStory": null
+    },
+    {
+      "id": "mon_cheri_01",
+      "name": "Mon Chéri",
+      "isPro": true,
+      "category": "Chocolate",
+      "image": "moncheri.png",
+      "quickFacts": {
+        "origin": "Italy",
+        "year": 1956,
+        "type": "Praline"
+      },
+      "history": "Created by Ferrero in 1956, Mon Chéri is a premium chocolate praline...",
+      "flavorProfile": "Dark chocolate shell filled with cherry liqueur and a whole cherry...",
+      "trivia": "The name means 'my dear' in French, reflecting its romantic positioning.",
+      "brandStory": "Mon Chéri is marketed as a sophisticated adult chocolate, often given as gifts."
+    },
+    {
+      "id": "pizzelle_01",
+      "name": "Pizzelle",
+      "isPro": false,
+      "category": "Cookie",
+      "image": "pizzelle.png",
+      "quickFacts": {
+        "origin": "Italy",
+        "year": 1400,
+        "type": "Wafer Cookie"
+      },
+      "history": "Pizzelle are traditional Italian waffle cookies that originated in the Abruzzo region...",
+      "flavorProfile": "Thin, crispy waffle cookies with delicate anise or vanilla flavoring...",
+      "trivia": "The name comes from 'pizze', meaning 'round and flat' in Italian.",
+      "brandStory": null
     }
   ]
 }
