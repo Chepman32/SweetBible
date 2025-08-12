@@ -1,8 +1,11 @@
-import React, { useMemo } from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
+import React, { useMemo, useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, Pressable, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeartIcon, HeartOutlineIcon, LeafIcon, GlobeIcon, CalendarIcon } from '../components/Icons';
+import Accordion from '../components/Accordion';
 import { theme } from '../theme/theme';
 import data from '../data/sweets_db.json';
+import { getImageSource } from '../data/imageMap';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/RootNavigator';
 import { useAppStore } from '../store/useAppStore';
@@ -11,97 +14,335 @@ type Props = NativeStackScreenProps<RootStackParamList, 'SweetDetail'>;
 
 export default function SweetDetailScreen({ route, navigation }: Props) {
   const { id } = route.params;
-  const sweet = useMemo(() => data.sweets.find(s => s.id === id), [id]);
+  const sweet = useMemo(() => data.sweets.find((s: any) => s.id === id), [id]);
   const isFav = useAppStore(s => !!s.favorites[id]);
   const toggle = useAppStore(s => s.toggleFavorite);
 
   if (!sweet) return null;
 
+  const imageSource = getImageSource(sweet.image);
+
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 40 }}>
-      <View style={styles.hero} />
-      <View style={styles.titleRow}>
-        <Text style={styles.title}>{sweet.name}</Text>
-        <Pressable onPress={() => toggle(id)} style={styles.heart}>
-          {isFav ? <HeartIcon size={22} /> : <HeartOutlineIcon size={22} />}
-        </Pressable>
-      </View>
+    <View style={styles.container}>
+      <SafeAreaView style={styles.safeArea}>
+        {/* Header with back button and country */}
+        <View style={styles.header}>
+          <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
+            <Text style={styles.backButtonText}>‹ {sweet.quickFacts.origin}</Text>
+          </Pressable>
+        </View>
+      </SafeAreaView>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Quick Facts</Text>
-        <View style={styles.factRow}>
-          <LeafIcon />
-          <View style={{ marginLeft: 8 }}>
-            <Text style={styles.factLabel}>Type</Text>
-            <Text style={styles.body}>{sweet.quickFacts.type}</Text>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+        {/* Hero Image Section */}
+        <View style={styles.heroSection}>
+          {imageSource ? (
+            <Image source={imageSource} style={styles.heroImage} resizeMode="cover" />
+          ) : (
+            <View style={styles.heroPlaceholder} />
+          )}
+          <View style={styles.titleOverlay}>
+            <Text style={styles.title}>{sweet.name}</Text>
           </View>
         </View>
-        <View style={styles.factRow}>
-          <GlobeIcon />
-          <View style={{ marginLeft: 8 }}>
-            <Text style={styles.factLabel}>Origin</Text>
-            <Text style={styles.body}>{sweet.quickFacts.origin}</Text>
+
+        {/* Quick Facts Section */}
+        <View style={styles.quickFactsSection}>
+          <Text style={styles.sectionTitle}>Quick Facts</Text>
+          
+          <View style={styles.factsGrid}>
+            <View style={styles.factItem}>
+              <View style={styles.factIcon}>
+                <LeafIcon size={20} />
+              </View>
+              <View style={styles.factContent}>
+                <Text style={styles.factLabel}>Type</Text>
+                <Text style={styles.factValue}>{sweet.quickFacts.type}</Text>
+              </View>
+            </View>
+
+            {sweet.nutrition && (
+              <View style={styles.factItem}>
+                <View style={styles.factIcon}>
+                  <Text style={styles.iconText}>🔥</Text>
+                </View>
+                <View style={styles.factContent}>
+                  <Text style={styles.factLabel}>Calories</Text>
+                  <Text style={styles.factValue}>{sweet.nutrition.calories} kcal ({sweet.nutrition.servingSize})</Text>
+                </View>
+              </View>
+            )}
+
+            <View style={styles.factItem}>
+              <View style={styles.factIcon}>
+                <GlobeIcon size={20} />
+              </View>
+              <View style={styles.factContent}>
+                <Text style={styles.factLabel}>Origin</Text>
+                <Text style={styles.factValue}>{sweet.quickFacts.origin}</Text>
+              </View>
+            </View>
+
+            <View style={styles.factItem}>
+              <View style={styles.factIcon}>
+                <CalendarIcon size={20} />
+              </View>
+              <View style={styles.factContent}>
+                <Text style={styles.factLabel}>Year</Text>
+                <Text style={styles.factValue}>{sweet.quickFacts.year}</Text>
+              </View>
+            </View>
+
+            {sweet.ingredients && (
+              <View style={styles.factItem}>
+                <View style={styles.factIcon}>
+                  <Text style={styles.iconText}>🥄</Text>
+                </View>
+                <View style={styles.factContent}>
+                  <Text style={styles.factLabel}>Ingredients</Text>
+                  <Text style={styles.factValue}>{sweet.ingredients.length} items</Text>
+                </View>
+              </View>
+            )}
+
+            {sweet.dietaryNotes && (
+              <View style={styles.factItem}>
+                <View style={styles.factIcon}>
+                  <Text style={styles.iconText}>🏷️</Text>
+                </View>
+                <View style={styles.factContent}>
+                  <Text style={styles.factLabel}>Dietary Notes</Text>
+                </View>
+              </View>
+            )}
+
+            {sweet.isPro && (
+              <View style={styles.factItem}>
+                <View style={styles.factIcon}>
+                  <Text style={styles.iconText}>⭐</Text>
+                </View>
+                <View style={styles.factContent}>
+                  <Text style={styles.factLabel}>Premium Story</Text>
+                </View>
+              </View>
+            )}
           </View>
         </View>
-        <View style={styles.factRow}>
-          <CalendarIcon />
-          <View style={{ marginLeft: 8 }}>
-            <Text style={styles.factLabel}>Year</Text>
-            <Text style={styles.body}>{sweet.quickFacts.year}</Text>
-          </View>
-        </View>
-      </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>History</Text>
-        <Text style={styles.body}>{sweet.history}</Text>
-      </View>
+        {/* History Section */}
+        <Accordion title="History" defaultExpanded={true}>
+          <Text style={styles.accordionContent}>{sweet.history}</Text>
+        </Accordion>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Flavor Profile</Text>
-        <Text style={styles.body}>{sweet.flavorProfile}</Text>
-      </View>
+        {/* Taste Description Section */}
+        {sweet.tasteDescription && (
+          <Accordion title="Taste Description" defaultExpanded={false}>
+            <Text style={styles.accordionContent}>{sweet.tasteDescription}</Text>
+          </Accordion>
+        )}
 
-      {sweet.trivia ? (
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Did You Know?</Text>
-          <Text style={styles.body}>{sweet.trivia}</Text>
-        </View>
-      ) : null}
-    </ScrollView>
+        {/* Flavor Profile Section with Ingredients */}
+        <Accordion title="Flavor Profile - cooked!" defaultExpanded={false}>
+          <Text style={styles.accordionContent}>{sweet.flavorProfile}</Text>
+          {sweet.ingredients && (
+            <View style={styles.ingredientsSection}>
+              {sweet.ingredients.map((ingredient, index) => {
+                // Mock measurements for demo
+                const measurements = ["1¼ cups", "3 large", "¾ cup", "⅛ cup, melted", "1 tsp", "½ tsp", "1 tsp"];
+                return (
+                  <View key={index} style={styles.ingredientRow}>
+                    <Text style={styles.ingredientName}>{ingredient}</Text>
+                    <Text style={styles.ingredientAmount}>{measurements[index] || "to taste"}</Text>
+                  </View>
+                );
+              })}
+            </View>
+          )}
+        </Accordion>
+
+        {/* Dietary Notes Accordion */}
+        {sweet.dietaryNotes && (
+          <Accordion title="Dietary Notes" defaultExpanded={false}>
+            <View style={styles.dietaryNotesContent}>
+              {sweet.dietaryNotes.map((note, index) => (
+                <View key={index} style={styles.dietaryNoteItem}>
+                  <Text style={styles.dietaryNoteText}>• {note}</Text>
+                </View>
+              ))}
+            </View>
+          </Accordion>
+        )}
+
+        {/* Trivia Section */}
+        {sweet.trivia && (
+          <Accordion title="Did You Know?" defaultExpanded={false}>
+            <Text style={styles.accordionContent}>{sweet.trivia}</Text>
+          </Accordion>
+        )}
+
+        {/* Brand Story Section */}
+        {sweet.brandStory && (
+          <Accordion title="Brand Story" defaultExpanded={false}>
+            <Text style={styles.accordionContent}>{sweet.brandStory}</Text>
+          </Accordion>
+        )}
+
+        <View style={{ height: 40 }} />
+      </ScrollView>
+    </View>
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: theme.colors.background },
-  hero: { height: 240, backgroundColor: '#ddd' },
-  titleRow: {
+  container: { 
+    flex: 1, 
+    backgroundColor: '#f8f8f8' 
+  },
+  safeArea: {
+    backgroundColor: '#f8f8f8',
+  },
+  header: {
     paddingHorizontal: theme.spacing(2),
-    paddingVertical: theme.spacing(2),
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    paddingVertical: theme.spacing(1),
+    backgroundColor: '#f8f8f8',
+    zIndex: 10,
   },
-  title: { fontSize: 24, fontWeight: '800', color: theme.colors.textPrimary },
-  heart: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: theme.colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
+  scrollView: {
+    flex: 1,
   },
-  section: {
+  backButton: {
+    alignSelf: 'flex-start',
+  },
+  backButtonText: {
+    fontSize: 18,
+    color: '#ff6b6b',
+    fontWeight: '600',
+  },
+  heroSection: {
+    position: 'relative',
+    height: 200,
     marginHorizontal: theme.spacing(2),
     marginBottom: theme.spacing(2),
-    backgroundColor: theme.colors.surface,
-    borderRadius: theme.radius.card,
+    borderRadius: 12,
+    overflow: 'hidden',
+    backgroundColor: '#e0e0e0',
+  },
+  heroImage: {
+    width: '100%',
+    height: '100%',
+  },
+  heroPlaceholder: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#e0e0e0',
+  },
+  titleOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    background: 'linear-gradient(transparent, rgba(0,0,0,0.6))',
     padding: theme.spacing(2),
   },
-  factRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
-  factLabel: { color: theme.colors.textPrimary, fontWeight: '700' },
-  sectionTitle: { fontSize: 18, fontWeight: '700', color: theme.colors.textPrimary, marginBottom: 4 },
-  body: { color: theme.colors.textSecondary, lineHeight: 22 },
+  title: { 
+    fontSize: 32, 
+    fontWeight: '900', 
+    color: theme.colors.textPrimary,
+    textShadowColor: 'rgba(0,0,0,0.3)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+  },
+  quickFactsSection: {
+    backgroundColor: 'white',
+    marginHorizontal: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    borderRadius: 12,
+    padding: theme.spacing(2),
+  },
+  sectionTitle: { 
+    fontSize: 20, 
+    fontWeight: '700', 
+    color: theme.colors.textPrimary, 
+    marginBottom: theme.spacing(2),
+  },
+  factsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing(2),
+  },
+  factItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '45%',
+    minWidth: 150,
+    marginBottom: theme.spacing(1.5),
+  },
+  factIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: '#f5f5f5',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: theme.spacing(1),
+  },
+  iconText: {
+    fontSize: 16,
+  },
+  factContent: {
+    flex: 1,
+  },
+  factLabel: { 
+    fontSize: 14,
+    color: theme.colors.textSecondary, 
+    fontWeight: '600',
+    marginBottom: 2,
+  },
+  factValue: { 
+    fontSize: 14,
+    color: theme.colors.textPrimary, 
+    fontWeight: '500',
+    lineHeight: 18,
+  },
+  accordionContent: {
+    color: theme.colors.textSecondary,
+    fontSize: 15,
+    lineHeight: 22,
+  },
+  ingredientsSection: {
+    marginTop: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    borderTopWidth: 1,
+    borderTopColor: '#f0f0f0',
+  },
+  ingredientRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 6,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#f0f0f0',
+  },
+  ingredientName: {
+    fontSize: 15,
+    color: theme.colors.textPrimary,
+    fontWeight: '500',
+  },
+  ingredientAmount: {
+    fontSize: 15,
+    color: theme.colors.textSecondary,
+  },
+  dietaryNotesContent: {
+    paddingTop: theme.spacing(1),
+  },
+  dietaryNoteItem: {
+    paddingVertical: 4,
+  },
+  dietaryNoteText: {
+    fontSize: 15,
+    color: theme.colors.textSecondary,
+    lineHeight: 20,
+  },
 });
 
