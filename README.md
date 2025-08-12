@@ -106,3 +106,7 @@ Quick start:
 - iOS pods: `cd ios && bundle install && bundle exec pod install && cd ..`
 - Start metro: `npm start`
 - Run iOS: `npm run ios`
+
+### Assets
+
+Images are loaded from Unsplash via `src/data/imageMap.ts` (royalty-free placeholders suitable for development). Replace with your own images for production. Icons and in-app illustrations are vector-based using `react-native-svg` in `src/components/Icons.tsx` and `src/components/OnboardingArt.tsx`.

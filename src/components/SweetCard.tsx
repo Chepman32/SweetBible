@@ -1,6 +1,8 @@
 import React from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { theme } from '../theme/theme';
+import { ProBadge } from './Icons';
+import { getImageSource } from '../data/imageMap';
 
 export type Sweet = {
   id: string;
@@ -21,11 +23,15 @@ export default function SweetCard({ sweet, proLocked, onPress }: Props) {
     <Pressable onPress={onPress} style={styles.card}>
       <View>
         <View style={styles.imageHolder}>
-          <View style={styles.fakeImage} />
+          {getImageSource(sweet.image) ? (
+            <Image source={getImageSource(sweet.image)} style={styles.image} resizeMode="cover" />
+          ) : (
+            <View style={styles.fakeImage} />
+          )}
         </View>
         {proLocked && (
           <View style={styles.lockOverlay}>
-            <Text style={styles.lockText}>Pro</Text>
+            <ProBadge />
           </View>
         )}
       </View>
@@ -41,6 +47,11 @@ const styles = StyleSheet.create({
     padding: theme.spacing(1),
     margin: theme.spacing(1),
     width: '46%',
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    elevation: 3,
   },
   imageHolder: {
     height: 140,
@@ -48,6 +59,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: '#eee',
   },
+  image: { width: '100%', height: '100%' },
   fakeImage: {
     flex: 1,
     backgroundColor: '#ddd',
@@ -57,11 +69,6 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.overlay,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  lockText: {
-    color: theme.colors.accentGold,
-    fontWeight: '700',
-    fontSize: 16,
   },
   title: {
     color: theme.colors.textPrimary,

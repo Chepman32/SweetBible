@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { View, TextInput, FlatList, Text, StyleSheet, Pressable } from 'react-native';
+import { CandyIcon } from '../components/Icons';
 import Fuse from 'fuse.js';
 import data from '../data/sweets_db.json';
 import { theme } from '../theme/theme';
@@ -41,7 +42,12 @@ export default function SearchScreen({ navigation }: Props) {
             <Text style={styles.meta}>{item.category} • {item.quickFacts.origin}</Text>
           </Pressable>
         )}
-        ListEmptyComponent={<Text style={styles.empty}>Find your favorite treat</Text>}
+        ListEmptyComponent={
+          <View style={styles.emptyWrap}>
+            <CandyIcon size={96} />
+            <Text style={styles.empty}>Find your favorite treat</Text>
+          </View>
+        }
       />
     </View>
   );
@@ -65,6 +71,7 @@ const styles = StyleSheet.create({
   },
   name: { color: theme.colors.textPrimary, fontWeight: '700' },
   meta: { color: theme.colors.textSecondary },
-  empty: { textAlign: 'center', color: theme.colors.textSecondary, marginTop: theme.spacing(4) },
+  emptyWrap: { alignItems: 'center', marginTop: theme.spacing(6) },
+  empty: { textAlign: 'center', color: theme.colors.textSecondary, marginTop: theme.spacing(2) },
 });
 

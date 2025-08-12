@@ -32,6 +32,30 @@
       "flavorProfile": "A whole roasted hazelnut encased in a thin wafer shell filled with hazelnut cream...",
       "trivia": "'Rocher' means 'rock' or 'boulder' in French, likely referring to its shape.",
       "brandStory": "Ferrero's marketing has always positioned Rocher as a luxury, yet accessible, confection..."
+    },
+    {
+      "id": "macaron_01",
+      "name": "Macaron",
+      "isPro": false,
+      "category": "Pastry",
+      "image": "macaron.png",
+      "quickFacts": { "origin": "France", "year": 1500, "type": "Cookie" },
+      "history": "The modern Parisian macaron was popularized in the early 20th century...",
+      "flavorProfile": "Almond meringue shells with ganache or jam filling...",
+      "trivia": null,
+      "brandStory": null
+    },
+    {
+      "id": "gummy_bears_01",
+      "name": "Gummy Bears",
+      "isPro": false,
+      "category": "Gummy",
+      "image": "gummy.png",
+      "quickFacts": { "origin": "Germany", "year": 1922, "type": "Gummy" },
+      "history": "Invented by Hans Riegel Sr., founder of Haribo...",
+      "flavorProfile": "Chewy fruit-flavored candies...",
+      "trivia": null,
+      "brandStory": null
     }
   ]
 }

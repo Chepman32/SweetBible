@@ -7,6 +7,10 @@ import SweetDetailScreen from '../screens/SweetDetailScreen';
 import SearchScreen from '../screens/SearchScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import StoreScreen from '../screens/StoreScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
+import PurchaseSuccessScreen from '../screens/PurchaseSuccessScreen';
+import TabNavigator from './TabNavigator';
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -16,6 +20,9 @@ export type RootStackParamList = {
   Search: undefined;
   Favorites: undefined;
   Settings: undefined;
+  Store: undefined;
+  Notifications: undefined;
+  Success: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -25,11 +32,18 @@ export default function RootNavigator() {
     <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="SweetDetail" component={SweetDetailScreen} />
+      <Stack.Screen name="Home" component={TabNavigator} />
+      <Stack.Screen
+        name="SweetDetail"
+        component={SweetDetailScreen}
+        options={{ headerShown: true, title: '', headerTransparent: true, headerBackTitleVisible: false }}
+      />
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="Favorites" component={FavoritesScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="Store" component={StoreScreen} />
+      <Stack.Screen name="Notifications" component={NotificationsScreen} />
+      <Stack.Screen name="Success" component={PurchaseSuccessScreen} />
     </Stack.Navigator>
   );
 }
